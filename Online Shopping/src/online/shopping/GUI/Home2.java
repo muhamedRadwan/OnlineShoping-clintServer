@@ -25,10 +25,11 @@ public class Home2 extends Window{
     JComboBox men = new JComboBox(man);
     JComboBox women = new JComboBox(woman);
     JComboBox kids = new JComboBox(kid);
-    JLabel sort = new JLabel("Sort");
-    JCheckBox a_z = new JCheckBox("A-Z");
-    JCheckBox z_a = new JCheckBox("Z-A");
-    JCheckBox price = new JCheckBox("Price");
+    JLabel SORT = new JLabel("Sort");
+    JLabel filter = new JLabel("Filter");
+    String[] Sort = {"A-Z", "Z-A", "Price"};
+    JComboBox sort = new JComboBox(Sort);
+    Card x = new Card();
     
     public Home2(String s) {
         super(s);
@@ -41,6 +42,7 @@ public class Home2 extends Window{
         register.addActionListener(this);
         cart.setBounds(register.getBounds().x + 120, register.getBounds().y, 100, 30);
         add(cart);
+        cart.addActionListener(this);
         
         men.setBounds(logo.getBounds().x+150, logo.getBounds().y+150, 80, 30);
         add(men);
@@ -49,14 +51,16 @@ public class Home2 extends Window{
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
         
-        sort.setBounds(men.getBounds().x - 130, men.getBounds().y+50, 80, 10);
+       // x.image().setBounds(men.getBounds().x , men.getBounds().y+50 , 150 , 250);
+     //   add(x);
+        
+        SORT.setBounds(men.getBounds().x - 130, men.getBounds().y+50, 80, 30);
+        add(SORT);
+        sort.setBounds(SORT.getBounds().x, SORT.getBounds().y+25, 80, 30);
         add(sort);
-        a_z.setBounds(sort.getBounds().x, sort.getBounds().y + 20, 50, 20);
-        add(a_z);
-        z_a.setBounds(a_z.getBounds().x, a_z.getBounds().y + 30, 50, 30);
-        add(z_a);
-        price.setBounds(z_a.getBounds().x, z_a.getBounds().y + 30, 100, 50);
-        add(price);
+        
+        filter.setBounds(sort.getBounds().x, sort.getBounds().y+30, 80, 30);
+        add(filter);
         
     }
     
@@ -71,6 +75,9 @@ public class Home2 extends Window{
             this.setVisible(false);
             login log = new login("Login");
             log.setVisible(true);
+        }
+        if(ae.getActionCommand().equals("Cart")){
+            System.out.println("Items are here");
         }
     }
 }

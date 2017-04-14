@@ -21,8 +21,8 @@ import javax.swing.JLabel;
 public class Window extends javax.swing.JFrame implements ActionListener {
 
     String title ="" ;
-    JLabel logo;
-    ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("logo.jpg"));
+    ImageIcon icon = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.jpg"));
+    JLabel logo = new JLabel();
     
     public Window (String s){
         super (s);
@@ -31,7 +31,6 @@ public class Window extends javax.swing.JFrame implements ActionListener {
         setLocation(300,10);
         setSize(800,800);
         setLayout(null);
-        logo  = new JLabel();
         logo.setIcon(icon);
         logo.setBounds(10, 10, 200, 100);
         add(logo);

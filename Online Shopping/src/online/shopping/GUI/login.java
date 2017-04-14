@@ -24,8 +24,6 @@ public class login extends Window implements ActionListener{
     private JTextField []arrtextfields = new JTextField[2];
     private JLabel []arrlabel = new JLabel[3];
     private ImageIcon img;
-    private String[] actor = {"Admin", "Employee", "Coustmer"};
-    private JComboBox who = new JComboBox(actor);
     
     public login(String s) {
         super(s);
@@ -47,15 +45,7 @@ public class login extends Window implements ActionListener{
         arrtextfields[1].setBounds(arrlabel[1].getBounds().x+70,arrlabel[1].getBounds().y,arrlabel[1].getBounds().width + 50,arrlabel[1].getBounds().height);
         add(arrtextfields[1]);
         
-        arrlabel [2] = new JLabel ("Actor");
-        arrlabel[2].setBounds(logo.getBounds().x, arrlabel[1].getBounds().y + 50, 100, 20);
-        add(arrlabel[2]);
-        who.setBounds(arrlabel[1].getBounds().x + 70, arrlabel[1].getBounds().y + 50, 100, 40);
-        who.setSelectedIndex(2);
-        add(who);
-        who.addActionListener(this);
-        
-        loginButton.setBounds(who.getBounds().x,who.getBounds().y+60, 100, 40);
+        loginButton.setBounds(arrtextfields[1].getBounds().x,arrtextfields[1].getBounds().y+60, 100, 40);
         add(loginButton);
         loginButton.addActionListener(this);
         

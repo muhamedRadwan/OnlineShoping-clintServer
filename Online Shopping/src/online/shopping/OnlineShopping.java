@@ -18,7 +18,7 @@ public class OnlineShopping {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Home2 x = new Home2 ("Home");
+        Home2 x = new Home2 ("dsf");
         x.setVisible(true);
     }
     
