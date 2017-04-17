@@ -56,7 +56,7 @@ public class login extends Window implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("Login")){
-            System.out.println("Logged in");
+            notimplmented imp = new notimplmented(this);
         }
         if(ae.getActionCommand().equals("Home")){
             this.setVisible(false);

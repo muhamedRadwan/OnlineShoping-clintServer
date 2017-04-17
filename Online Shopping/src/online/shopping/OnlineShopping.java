@@ -19,7 +19,7 @@ public class OnlineShopping {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Admin x = new Admin ("dsf");
+        Home x = new Home ("dsf");
         x.setVisible(true);
     }
     

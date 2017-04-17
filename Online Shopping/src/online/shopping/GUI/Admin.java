@@ -5,6 +5,8 @@
  */
 package online.shopping.GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lobna
@@ -38,6 +40,11 @@ public class Admin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.jpg"))); // NOI18N
 
         jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Employee");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +54,11 @@ public class Admin extends javax.swing.JFrame {
         });
 
         jButton3.setText("Forget Password");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +100,16 @@ public class Admin extends javax.swing.JFrame {
         AddEmployee x = new AddEmployee("Alter Employee");
         x.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        logout log = new logout(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        notimplmented imp = new notimplmented(this);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
 
