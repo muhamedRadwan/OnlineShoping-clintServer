@@ -126,16 +126,21 @@ public class Home extends Window {
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
                 
+        ArrayList<Card> cards = new ArrayList<>(10);
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
         panel.setLayout(new GridLayout(0,3,5,10));
-        panel.add(a.product);
-        panel.add(b.product);
-        panel.add(c.product);
-        panel.add(x.product);
-        panel.add(z.product);
-        panel.add(z1.product);
-        panel.add(z2.product);
-        panel.add(z3.product);
-        panel.add(z4.product);
+        cards.forEach((card)->{
+        panel.add(card.product);
+        });
         scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(men.getBounds().x +100, men.getBounds().y+50 , 500 , 500);
         add(scrollPane);
