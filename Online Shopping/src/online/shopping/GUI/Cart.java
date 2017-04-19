@@ -5,6 +5,7 @@
  */
 package online.shopping.GUI;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -33,6 +34,7 @@ public class Cart extends Window{
     JLabel total = new JLabel("Total Price");
     JLabel price = new JLabel("xxx$");
     JButton buy = new JButton("Continue to checkout");
+    JButton home = new JButton("Home");
 
     public Cart(String title) {
         super(title);
@@ -50,23 +52,36 @@ public class Cart extends Window{
         scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(150, 150 , 500 , 500);
         add(scrollPane);
+        panel.setBackground(new Color(197,239,247));
         
         total.setBounds(scrollPane.getBounds().x - 50, scrollPane.getBounds().y + 520, 100, 50);
         add(total);
+        total.setForeground(Color.white);
         
         price.setBounds(total.getBounds().x+80, total.getBounds().y, 100, 50);
         add(price);
+        price.setForeground(Color.white);
         
         buy.setBounds(total.getBounds().x + 400, total.getBounds().y, 180, 50);
         add(buy);
         buy.addActionListener(this);
+        
+        home.setBounds(logo.getBounds().x + 600, logo.getBounds().y+20, 100, 30);
+        add(home);
+        home.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("Continue to checkout")) {
+            back x = new back();
+            x.Back=1;
             this.setVisible(false);
             new PaymentMethod("Payment Method").setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("Home")){
+            this.setVisible(false);
+            new Home("Home").setVisible(true);
         }
     }
     

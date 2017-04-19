@@ -144,6 +144,7 @@ public class Home extends Window {
         scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(men.getBounds().x +100, men.getBounds().y+50 , 500 , 500);
         add(scrollPane);
+        panel.setBackground(new Color(197,239,247));
         panel.addMouseListener(new MouseAdapter(){  
 
             @Override
@@ -159,6 +160,8 @@ public class Home extends Window {
         add(SORT);
         sort.setBounds(SORT.getBounds().x, SORT.getBounds().y + 25, 80, 30);
         add(sort);
+        SORT.setForeground(Color.white);
+        filter.setForeground(Color.white);
 
         /*
             Set Filter Area 
@@ -179,7 +182,6 @@ public class Home extends Window {
         //set Layout  Grid with any number of Rows and 1 colmun
         filterOptions.setLayout(s);
         filterOptions.setBorder(new EmptyBorder(0, 0, 0, 0));
-
         //Panl To Save in it JLabel--> Filter
         JPanel FilterWordHolder = new JPanel();
         FilterWordHolder.add(filter);
