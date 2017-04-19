@@ -202,7 +202,12 @@ public class PaymentMethod extends Window {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Item("Item").setVisible(true);
+        if(new back().Back==1)
+            new Cart("Cart").setVisible(true);
+        else if(new back().Back==2)
+            new Item("Item").setVisible(true);
+        
+            
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

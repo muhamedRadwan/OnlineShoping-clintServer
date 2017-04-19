@@ -81,6 +81,7 @@ public class MasterCard extends Window{
         });
 
         jPasswordField1.setBackground(new java.awt.Color(36, 47, 65));
+        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setText("sdffa");
         jPasswordField1.setBorder(null);
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {

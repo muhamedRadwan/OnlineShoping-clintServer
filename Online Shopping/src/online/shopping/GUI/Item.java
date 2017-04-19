@@ -157,6 +157,7 @@ public class Item extends Window {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        new back().Back = 2;
         this.setVisible(false);
         new PaymentMethod("Payment Method").setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
