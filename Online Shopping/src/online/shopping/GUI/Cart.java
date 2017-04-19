@@ -33,6 +33,7 @@ public class Cart extends Window{
     JLabel total = new JLabel("Total Price");
     JLabel price = new JLabel("xxx$");
     JButton buy = new JButton("Continue to checkout");
+    JButton home = new JButton("Home");
 
     public Cart(String title) {
         super(title);
@@ -60,6 +61,10 @@ public class Cart extends Window{
         buy.setBounds(total.getBounds().x + 400, total.getBounds().y, 180, 50);
         add(buy);
         buy.addActionListener(this);
+        
+        home.setBounds(logo.getBounds().x + 600, logo.getBounds().y+20, 100, 30);
+        add(home);
+        home.addActionListener(this);
     }
     
     @Override
@@ -67,6 +72,10 @@ public class Cart extends Window{
         if (ae.getActionCommand().equals("Continue to checkout")) {
             this.setVisible(false);
             new PaymentMethod("Payment Method").setVisible(true);
+        }
+        else if (ae.getActionCommand().equals("Home")){
+            this.setVisible(false);
+            new Home("Home").setVisible(true);
         }
     }
     
