@@ -253,7 +253,8 @@ public class Home extends Window {
             log.setVisible(true);
         }
         if (ae.getActionCommand().equals("Cart")) {
-            JOptionPane.showMessageDialog(this, "Item added");
+            this.setVisible(false);
+            new Cart("Cart").setVisible(true);
         }
     }
 }
