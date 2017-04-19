@@ -63,8 +63,18 @@ public class Coustmer extends Window {
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
 
         jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Send Feedback");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Update Account");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -320,7 +330,6 @@ public class Coustmer extends Window {
                         .addComponent(jButton3)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addGap(31, 31, 31))))
         );
@@ -395,6 +404,17 @@ public class Coustmer extends Window {
         // TODO add your handling code here:
         notimplmented x = new notimplmented(this);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Home("Home").setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        notimplmented x = new notimplmented(this);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
