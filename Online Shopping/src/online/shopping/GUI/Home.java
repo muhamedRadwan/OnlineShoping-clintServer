@@ -67,7 +67,20 @@ public class Home extends Window {
         "Z-A",
         "Price"
     };
+<<<<<<< HEAD
     ArrayList<Card>cards;
+=======
+    Card a = new Card();
+    Card b = new Card();
+    Card c = new Card();
+    Card x = new Card();
+    Card y = new Card();
+    Card z = new Card();
+    Card z1 = new Card();
+    Card z2 = new Card();
+    Card z3 = new Card();
+    Card z4 = new Card();
+>>>>>>> 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656
     JPanel panel = new JPanel();
     JScrollPane scrollPane;
     JComboBox sort = new JComboBox(Sort);
@@ -107,7 +120,11 @@ public class Home extends Window {
         add(register);
         register.addActionListener(this);
         cart.setBounds(register.getBounds().x + 120, register.getBounds().y, 100, 30);
+<<<<<<< HEAD
         add(cart); 
+=======
+        add(cart);
+>>>>>>> 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656
         cart.addActionListener(this);
 
         men.setBounds(logo.getBounds().x + 150, logo.getBounds().y + 150, 80, 30);
@@ -116,8 +133,13 @@ public class Home extends Window {
         add(women);
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
+<<<<<<< HEAD
         
         cards=new ArrayList<>(10);
+=======
+                
+        ArrayList<Card> cards = new ArrayList<>(10);
+>>>>>>> 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656
         cards.add(new Card());
         cards.add(new Card());
         cards.add(new Card());
@@ -129,10 +151,16 @@ public class Home extends Window {
         cards.add(new Card());
         cards.add(new Card());
         panel.setLayout(new GridLayout(0,3,5,10));
+<<<<<<< HEAD
         cards.forEach((card)->{
         panel.add(card.product);
         });
         
+=======
+         cards.forEach((card)->{
+            panel.add(card.product);
+        });
+>>>>>>> 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656
         scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(men.getBounds().x +100, men.getBounds().y+50 , 500 , 500);
         add(scrollPane);

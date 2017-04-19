@@ -1,4 +1,9 @@
 *.svg
 test
+<<<<<<< HEAD
 /Online Shopping/dist/
 /Online Shopping/build/
+=======
+Online Shopping/nbproject/private/
+Online Shopping/build/
+>>>>>>> 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656
