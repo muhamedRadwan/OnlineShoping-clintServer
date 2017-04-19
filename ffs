@@ -1,0 +1,299 @@
+[33mcommit cbdbe80cc01be555f93b08cfe7138f6dcd78ad6a[m
+Author: lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 19 04:39:57 2017 +0200
+
+    New GUI
+
+[33mcommit 663bca260544f7444870a9ded58c4447b6ff4f43[m
+Merge: 02eb2ff 1d08a5f
+Author: lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 19 04:37:57 2017 +0200
+
+    Employee sequnce diageam
+
+[33mcommit 02eb2ff4f79d81ef848deaa5e2a1310e36ed5d1f[m
+Author: lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 19 04:28:46 2017 +0200
+
+    Employee sequnce diageam
+
+[33mcommit 37db1b23c5ca316f3c572554b5d586e349903c2d[m
+Author: lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 19 04:20:38 2017 +0200
+
+    cart added
+
+[33mcommit 1b72f6946e474768686cded1a3fd759852e8beed[m
+Author: lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 19 04:15:31 2017 +0200
+
+    cart added
+
+[33mcommit 1d08a5f6bd4f3b091e36fc464bb08fec6d6de656[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 04:00:53 2017 +0200
+
+    delete build
+
+[33mcommit 40838ba5227303a4e025bea6fb4a5085fe45f4b2[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 03:59:34 2017 +0200
+
+    delet build
+
+[33mcommit 125b96327cc27bafff8d9ae34a67ea035a46fee5[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 03:56:29 2017 +0200
+
+    Final Update
+
+[33mcommit e8dfce8f27bcbff450ebdfdf8a1747c413de1b6b[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 03:55:46 2017 +0200
+
+    Final Update
+
+[33mcommit 380871da2a7f933dffcfe030e4d8392c54861d3a[m
+Merge: 2ffcbb5 9cec174
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 03:36:03 2017 +0200
+
+    Merge branch 'master' of https://github.com/muhamedRadwan/OnlineShoping-clintServer
+
+[33mcommit 2ffcbb581cc5f8ab82f12deefa826272ec049968[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 03:30:51 2017 +0200
+
+    Final Update
+
+[33mcommit b968027dbc11e35a96b918ddeb6f091ed415e6f6[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 02:41:39 2017 +0200
+
+    Final Update
+
+[33mcommit 9cec17460a259ca4ac0e3c3e81ff51379228e42e[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Wed Apr 19 02:35:17 2017 +0200
+
+    Delete Capture.PNG
+
+[33mcommit c6a34c77418b45d616e4c8ccfac980340b119bdc[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 02:34:19 2017 +0200
+
+    Final Update
+
+[33mcommit bf9b50bb757cf042357859796554235e2d7daec9[m
+Merge: 4be7ac9 1711e44
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 02:30:20 2017 +0200
+
+    Final Update
+
+[33mcommit 4be7ac9a41e71984e2a7fa0ca5253b7db316a84d[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Wed Apr 19 02:26:33 2017 +0200
+
+    Final Update
+
+[33mcommit 1711e44fb5f51625bf0559495b59f461bb9aef27[m
+Author: HagarKhaled <hagarkhaled194@gmail.com>
+Date:   Mon Apr 17 15:07:30 2017 +0200
+
+    Add files via upload
+
+[33mcommit 943889fc4bd6437046f1a6ce63eae84e0b631b2c[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 06:23:54 2017 +0300
+
+    Delete .netbeans_update_resources
+
+[33mcommit ab0d48b941b7467b93b15f7f8e1698dc3280c578[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 06:23:43 2017 +0300
+
+    Delete .gitignore
+
+[33mcommit 771513f326294c7cc2c392eb3231dd86a62fd6b9[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 06:23:26 2017 +0300
+
+    Delete .netbeans_automatic_build
+
+[33mcommit fe07c46c972700101fde2ae26bfcfb14250c6a54[m
+Author: muhamedRadwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 05:21:47 2017 +0200
+
+    FilterDynamic Added
+
+[33mcommit c9b247c3f1ae2f77348645b940c2b8413a7fd2e6[m
+Author: muhamedRadwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 05:15:32 2017 +0200
+
+    Add FilterDynamic
+
+[33mcommit e4eb2e8295835f11d76f1c52c945ee11266051b3[m
+Author: muhamedRadwan <muhameda.radwan@gmail.com>
+Date:   Mon Apr 17 05:11:24 2017 +0200
+
+    Add FilterDynamic
+
+[33mcommit c4518fc5af73895e65a768052f4fca6216d7ba05[m
+Author: houdavic <houdavic123@yahoo.com>
+Date:   Sun Apr 16 23:46:03 2017 +0200
+
+    Add files via upload
+
+[33mcommit 8b4acc673250f4c6a4d2fbd59748f3263d3a8088[m
+Author: HagarKhaled <hagarkhaled194@gmail.com>
+Date:   Sun Apr 16 13:35:46 2017 +0200
+
+    Add files via upload
+
+[33mcommit 900c09d29b7e03950e540f8f464e9a3bda74b06c[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 15 20:22:48 2017 +0200
+
+    Update Lobna
+
+[33mcommit e4ad55f6b404be8acee4015cdce622f3a43f2c65[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 15 20:14:19 2017 +0200
+
+    Update Lobna
+
+[33mcommit 27946d5d7c58bf69ae4d728b3dbcfa4d813b601c[m
+Merge: 8ee4228 7a8ac9e
+Author: Lobna <lobna.mostafa95@gmail.com>
+Date:   Sat Apr 15 05:15:39 2017 +0200
+
+    Added admin and add product
+
+[33mcommit 8ee4228cf3d8f37a035ba10c6341965e863991b9[m
+Author: Lobna <lobna.mostafa95@gmail.com>
+Date:   Fri Apr 14 18:42:50 2017 +0200
+
+    GUI
+
+[33mcommit 7a8ac9e7ee9f4e8220d2570b65648202cc2d0db2[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Fri Apr 14 16:13:10 2017 +0200
+
+    HomeChange
+
+[33mcommit 6910a9210a8b7ec06095f6b9ec5070ead0be32b5[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Fri Apr 14 16:12:37 2017 +0200
+
+    HomeChange
+
+[33mcommit 43c8f0eb01fef1abbcbd51d51f6e220bebf8b2d4[m
+Author: Lobna <lobna.mostafa95@gmail.com>
+Date:   Wed Apr 12 01:29:45 2017 +0200
+
+    Made Login home regiestration
+
+[33mcommit a8b92375bbdd8d09f2dfeddc4dbda3af04f9e805[m
+Author: Lobna <lobna.mostafa95@gmail.com>
+Date:   Sat Apr 8 21:36:00 2017 +0200
+
+    Domain Class added
+
+[33mcommit 9a4c260ff4b934c00b183118843464adc651c21a[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 8 18:53:47 2017 +0200
+
+    Add Communication diagram
+
+[33mcommit f21dd702fdaa488f8b161beb42ac6d2fe39e1df8[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 8 18:53:14 2017 +0200
+
+    Add Communication diagram
+
+[33mcommit a38c6efb335f5ad3bd8e690684280068ede5b908[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Sat Apr 8 18:52:02 2017 +0200
+
+    Delete .gitignore
+
+[33mcommit eaab5092275eab6655092e00cdb053db061a26b1[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 8 18:50:46 2017 +0200
+
+    Add Communication diagram
+
+[33mcommit 6699e4f7dea721e9fd624e4e0277b30f74e58d21[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 8 18:44:01 2017 +0200
+
+    Add Communication diagram
+
+[33mcommit dfc772bc5927989a5b4c41f9748172150d5cb034[m
+Author: Mohamed Radwan <mohamedelnagm211@gmail.com>
+Date:   Sat Apr 8 18:42:34 2017 +0200
+
+    Add Communication diagram
+
+[33mcommit 678f1345276a7f525a54bc456fc5cfd95cff0ed8[m
+Merge: e34d101 76dcee3
+Author: Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 19:21:13 2017 +0200
+
+    Merge branch 'master' of https://github.com/muhamedRadwan/OnlineShoping-clintServer
+
+[33mcommit e34d101fac3105d37c75a41c81b6e967e3fb5fa5[m
+Merge: 3755ac4 171321c
+Author: Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 19:20:59 2017 +0200
+
+    tests
+
+[33mcommit 76dcee3b4aeeb97b95fd160494547dc9c1a5482e[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 20:19:58 2017 +0300
+
+    DONE
+
+[33mcommit 3755ac43f37ca2def13ef05a0e2d6dc0ab882758[m
+Author: Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 19:12:11 2017 +0200
+
+    test1
+
+[33mcommit 171321c77412da8e0648c02d345570f4b21e44ae[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 20:11:57 2017 +0300
+
+    deletepng
+
+[33mcommit c5c44a0adba11552057dcfb6f278429b8e11e835[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 20:10:37 2017 +0300
+
+    deletepng
+
+[33mcommit 098d368c549ff9e00c613308d9107ff6d77c0413[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 20:10:11 2017 +0300
+
+    deletepng
+
+[33mcommit f045593146dac4271c4297a95a3332b5e4975a78[m
+Author: Mohamed Ahmed Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 20:10:04 2017 +0300
+
+    deletpng
+
+[33mcommit 0955971f2684c858890416c4f08216a486c55bb1[m
+Author: Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 19:01:18 2017 +0200
+
+    test
+
+[33mcommit 2632eddda0dbd57ad32157974571f5037119434a[m
+Author: Radwan <muhameda.radwan@gmail.com>
+Date:   Fri Mar 31 18:55:33 2017 +0200
+
+    first commit
