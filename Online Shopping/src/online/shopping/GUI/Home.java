@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -66,16 +67,7 @@ public class Home extends Window {
         "Z-A",
         "Price"
     };
-    Card a = new Card();
-    Card b = new Card();
-    Card c = new Card();
-    Card x = new Card();
-    Card y = new Card();
-    Card z = new Card();
-    Card z1 = new Card();
-    Card z2 = new Card();
-    Card z3 = new Card();
-    Card z4 = new Card();
+    ArrayList<Card>cards;
     JPanel panel = new JPanel();
     JScrollPane scrollPane;
     JComboBox sort = new JComboBox(Sort);
@@ -115,7 +107,7 @@ public class Home extends Window {
         add(register);
         register.addActionListener(this);
         cart.setBounds(register.getBounds().x + 120, register.getBounds().y, 100, 30);
-        add(cart);
+        add(cart); 
         cart.addActionListener(this);
 
         men.setBounds(logo.getBounds().x + 150, logo.getBounds().y + 150, 80, 30);
@@ -124,17 +116,23 @@ public class Home extends Window {
         add(women);
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
-                
+        
+        cards=new ArrayList<>(10);
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
+        cards.add(new Card());
         panel.setLayout(new GridLayout(0,3,5,10));
-        panel.add(a.product);
-        panel.add(b.product);
-        panel.add(c.product);
-        panel.add(x.product);
-        panel.add(z.product);
-        panel.add(z1.product);
-        panel.add(z2.product);
-        panel.add(z3.product);
-        panel.add(z4.product);
+        cards.forEach((card)->{
+        panel.add(card.product);
+        });
+        
         scrollPane = new JScrollPane(panel);
         scrollPane.setBounds(men.getBounds().x +100, men.getBounds().y+50 , 500 , 500);
         add(scrollPane);
@@ -255,7 +253,7 @@ public class Home extends Window {
             log.setVisible(true);
         }
         if (ae.getActionCommand().equals("Cart")) {
-            System.out.println("Items are here");
+            JOptionPane.showMessageDialog(this, "Item added");
         }
     }
 }

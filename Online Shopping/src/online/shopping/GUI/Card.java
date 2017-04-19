@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  */
 public class Card extends JFrame{
 
-    ImageIcon img = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/3_4_length_faux_wool_reefer_coat_camel1344009661.jpg"));
+    ImageIcon img = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/shirt.png"));
     JLabel product = new JLabel();
     
     public Card() {

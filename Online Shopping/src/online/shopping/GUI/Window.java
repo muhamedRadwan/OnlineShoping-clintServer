@@ -23,7 +23,7 @@ import javax.swing.JLabel;
 public class Window extends javax.swing.JFrame implements ActionListener {
 
     String title ="" ;
-    ImageIcon icon = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.jpg"));
+    ImageIcon icon = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.png"));
     JLabel logo = new JLabel();
     JFrame frame = new JFrame();
     

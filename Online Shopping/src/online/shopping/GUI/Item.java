@@ -42,11 +42,11 @@ public class Item extends Window {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/online/shopping/GUI/Images/3_4_length_faux_wool_reefer_coat_camel1344009661.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/online/shopping/GUI/Images/shirt.png"))); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Size");
@@ -169,7 +169,7 @@ public class Item extends Window {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Home("Home").setVisible(true);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
