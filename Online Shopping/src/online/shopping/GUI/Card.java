@@ -24,10 +24,6 @@ public class Card extends JFrame{
         setSize(150,250);
         product.setBounds(25, 25, 200, 300);
         product.setIcon(img);
-        image();
         
-    }
-    public void image (){
-        add(product);
     }
 }

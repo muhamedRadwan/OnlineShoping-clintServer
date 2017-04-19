@@ -17,7 +17,8 @@ import javax.swing.JOptionPane;
 public class logout implements ActionListener{
     
     public logout(JFrame frame){
-        JOptionPane.showConfirmDialog(frame, "Are you sure?");
+        frame.setVisible(false);
+        new Home("Home").setVisible(true);
     }
 
     @Override

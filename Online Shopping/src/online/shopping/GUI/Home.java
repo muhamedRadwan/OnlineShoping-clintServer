@@ -8,7 +8,10 @@ package online.shopping.GUI;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.Action;
@@ -63,8 +66,19 @@ public class Home extends Window {
         "Z-A",
         "Price"
     };
-    JComboBox sort = new JComboBox(Sort);
+    Card a = new Card();
+    Card b = new Card();
+    Card c = new Card();
     Card x = new Card();
+    Card y = new Card();
+    Card z = new Card();
+    Card z1 = new Card();
+    Card z2 = new Card();
+    Card z3 = new Card();
+    Card z4 = new Card();
+    JPanel panel = new JPanel();
+    JScrollPane scrollPane;
+    JComboBox sort = new JComboBox(Sort);
     Font font;
     ArrayList< Filter> filterList;
 
@@ -110,9 +124,31 @@ public class Home extends Window {
         add(women);
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
+                
+        panel.setLayout(new GridLayout(0,3,5,10));
+        panel.add(a.product);
+        panel.add(b.product);
+        panel.add(c.product);
+        panel.add(x.product);
+        panel.add(z.product);
+        panel.add(z1.product);
+        panel.add(z2.product);
+        panel.add(z3.product);
+        panel.add(z4.product);
+        scrollPane = new JScrollPane(panel);
+        scrollPane.setBounds(men.getBounds().x +100, men.getBounds().y+50 , 500 , 500);
+        add(scrollPane);
+        panel.addMouseListener(new MouseAdapter(){  
 
-        // x.image().setBounds(men.getBounds().x , men.getBounds().y+50 , 150 , 250);
-        //        add(x);
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e); //To change body of generated methods, choose Tools | Templates.
+                new Item("Item").setVisible(true);
+                
+            }
+                 
+            });
+
         SORT.setBounds(men.getBounds().x - 130, men.getBounds().y + 50, 80, 30);
         add(SORT);
         sort.setBounds(SORT.getBounds().x, SORT.getBounds().y + 25, 80, 30);
@@ -142,10 +178,10 @@ public class Home extends Window {
         JPanel FilterWordHolder = new JPanel();
         FilterWordHolder.add(filter);
         filterArea.add(FilterWordHolder); //Add Filter Word To Filter Area
-        //Cal Function  That Fill Filters Options panel  By Data
+        //Calling Function  That Fill Filters Options panel  By Data
         SetFiliter(filterList);
 
-        //Make Scrooll Bane To Hold All Options Of Filters
+        //Make Scrooll pane To Hold All Options Of Filters
         JScrollPane scrollPane = new JScrollPane(filterOptions);
         filterArea.add(scrollPane); //Add it to Filter Area
         //Add Filter Area To Main Frame (Home Frame)

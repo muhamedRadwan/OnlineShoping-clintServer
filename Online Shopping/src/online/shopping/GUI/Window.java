@@ -5,6 +5,7 @@
  */
 package online.shopping.GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -26,13 +27,16 @@ public class Window extends javax.swing.JFrame implements ActionListener {
     JLabel logo = new JLabel();
     JFrame frame = new JFrame();
     
+    
     public Window (String s){
         super (s);
         title = s;
         
         setLocation(300,10);
         setSize(800,800);
+        setResizable(false);
         setLayout(null);
+        //getContentPane().setBackground(Color.WHITE);
         logo.setIcon(icon);
         logo.setBounds(10, 10, 200, 100);
         add(logo);
