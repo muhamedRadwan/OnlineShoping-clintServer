@@ -76,7 +76,7 @@ public class Cart extends Window{
         if (ae.getActionCommand().equals("Continue to checkout")) {
             back x = new back();
             x.Back=1;
-            this.setVisible(false);
+           // this.setVisible(false);
             new PaymentMethod("Payment Method").setVisible(true);
         }
         else if (ae.getActionCommand().equals("Home")){
