@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping;
+package online.shopping.Controller;
 
 import java.util.ArrayList;
 

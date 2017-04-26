@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping;
+package online.shopping.Controller;
 
 import java.util.HashMap;
 
@@ -12,9 +12,6 @@ import java.util.HashMap;
  *
  * @author Mohamed-A.Radwan
  */
-public class ProductFeaturs {
-    private int ID;
-    private String Freaturstitle;
-    private HashMap<String,Integer> featuresHash;
-    
+public class Management extends Person{
+    HashMap<String, String> priviledgeHash;
 }

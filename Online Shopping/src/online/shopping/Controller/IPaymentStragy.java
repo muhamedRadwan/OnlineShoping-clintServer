@@ -4,14 +4,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping;
-
-import java.util.HashMap;
+package online.shopping.Controller;
 
 /**
  *
  * @author Mohamed-A.Radwan
  */
-public class Management extends Person{
-    HashMap<String, String> priviledgeHash;
+public interface IPaymentStragy {
+    boolean pay(double amount);
 }

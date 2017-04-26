@@ -4,12 +4,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping;
+package online.shopping.Controller;
+
+import java.util.HashMap;
 
 /**
  *
  * @author Mohamed-A.Radwan
  */
-public interface IPaymentStragy {
-    boolean pay(double amount);
+public class ProductFeaturs {
+    private int ID;
+    private String Freaturstitle;
+    private HashMap<String,Integer> featuresHash;
+    
 }
