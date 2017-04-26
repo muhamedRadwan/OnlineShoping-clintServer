@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping.Filter;
+package online.shopping.Controller.Filter;
 
 import java.util.ArrayList;
 import online.shopping.Controller.Product;

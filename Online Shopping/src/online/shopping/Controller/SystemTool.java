@@ -6,7 +6,7 @@
  */
 package online.shopping.Controller;
 
-import online.shopping.Filter.FilterCriteria;
+import online.shopping.Controller.Filter.FilterCriteria;
 import java.util.ArrayList;
 
 /**
