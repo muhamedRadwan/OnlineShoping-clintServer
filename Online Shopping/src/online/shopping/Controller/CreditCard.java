@@ -5,15 +5,31 @@
  */
 package online.shopping.Controller;
 
+import java.io.Serializable;
 import java.util.Date;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 /**
  *
  * @author Mohamed-A.Radwan
  */
-public class CreditCard implements IPaymentStragy{
+@Entity
+@Table(name = "")
+public class CreditCard implements IPaymentStragy, Serializable{
+    @Id @GeneratedValue
+    @Column(name = "id")
+    private int id;
+    @Column(name = "holder_name")
     private String holderName;
+    @Column(name = "card_number")    
     private String cardNumber;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "date_of_expire")
     private Date dateOfExpire;
 
     public CreditCard() {

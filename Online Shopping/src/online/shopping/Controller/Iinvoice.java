@@ -19,6 +19,6 @@ public interface Iinvoice {
      */
     public double  getCost();
     public void  setCost(double  Cost);
-    public ArrayList<Product>  getList();
+   // public ArrayList<Product>  getList();
     
 }

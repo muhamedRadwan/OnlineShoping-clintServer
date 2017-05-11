@@ -1,17 +1,20 @@
 /*
-/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package online.shopping.Controller;
+
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -21,60 +24,49 @@ import org.hibernate.annotations.NotFoundAction;
  * @author Mohamed-A.Radwan
  */
 @Entity
-@Table(name = "feedback")
-public class Feedback {
-    @Id @GeneratedValue
+@Table(name = "cart_item")
+public class CartItem implements Serializable{
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "description")
-    private String Description;
-    @Column(name = "date")
-    private String date;
-    @Column(name = "seen")
-    private boolean seen;
+    @Column(name = "quantity")
+    private int quantity;
+    @Column(name = "product_id")
+    private int product;
     @ManyToOne(fetch = FetchType.EAGER)
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    
-    public String getDate() {
-        return date;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
 
     public int getId() {
         return id;
     }
 
-    public boolean isSeen() {
-        return seen;
+    public Customer getCustomer() {
+        return customer;
     }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setDescription(String Description) {
-        this.Description = Description;
+    
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setSeen(boolean seen) {
-        this.seen = seen;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public int getProduct() {
+        return product;
     }
-    
+
+    public void setProduct(int product) {
+        this.product = product;
+    }
 }

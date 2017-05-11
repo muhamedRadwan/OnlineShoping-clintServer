@@ -6,14 +6,17 @@
  */
 package online.shopping.Controller;
 
-import java.util.Date;
+import java.sql.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author Mohamed-A.Radwan
  */
 public class Cash implements IPaymentStragy{
-     private Date date;
+    private int id;
+    private Date date;
+    private int order_id;
 
     @Override
     public boolean pay(double amount) {
@@ -26,6 +29,14 @@ public class Cash implements IPaymentStragy{
 
     public Date getDate() {
         return date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

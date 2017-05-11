@@ -31,7 +31,7 @@ public class DocretorInvoice implements Iinvoice{
             return com.getCost();
     }
 
-    @Override
+    
     public ArrayList<Product> getList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
