@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.annotations.NotFound;
@@ -105,15 +106,18 @@ public class Invoice implements Iinvoice{
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    
+    /*
     public static void main(String[] args) {
         SessionFactory sesionFactory=Customer.createSessionFactory();
         Session session=sesionFactory.openSession();
         Address address=new Address();
         address.setName("Maadi");
         address.setParent_id(2);
-        
+        Query query=session.createQuery("from address set creditscore=:creditscore where name=:name");
+        query.setInteger("creditscore", 612);
+        query.setString("name", "John Q. Public");
+        int modifications=query.executeUpdate();
         
     }
-    
+    */
 }

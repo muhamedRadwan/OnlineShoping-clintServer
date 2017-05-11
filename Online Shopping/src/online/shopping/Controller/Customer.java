@@ -9,6 +9,7 @@ package online.shopping.Controller;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Random;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -108,17 +111,68 @@ public class Customer extends Person{
         this.feedbacks = feedbacks;
     }
     
-    public static SessionFactory createSessionFactory() {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
-                configuration.getProperties()).build();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        return sessionFactory;
+    
+    public boolean forgetPassword(String email) {
+        
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              
+              Query query=session.createQuery("from Customer c where c.email=:email");
+              query.setParameter("email", email);
+              Customer customer = (Customer)query.uniqueResult();
+              if(customer !=null){
+                    Transaction transaction = session.beginTransaction();
+                    String newPassword = getSaltString();
+                    customer.setPassword(newPassword);
+                    
+                    session.saveOrUpdate(session.merge(customer));
+       
+                    transaction.commit();
+                    session.close();           
+      
+                  return true ;
+              
+              }
+              else{
+                    session.close();           
+      
+                     return false;
+                   }
+          
+          
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+       
+    }
+
+    
+    protected String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
     }
     
+   public static void main(String[] args) {
 
-//    public static void main(String[] args) {
+       Customer cust =new Customer();
+       
+       cust.forgetPassword("muhameda.radwan@gmail.com");
+
+
+
+   }
 //        try {
 //            SessionFactory ses = createSessionFactory();
 //            Session session = ses.openSession();
@@ -173,7 +227,8 @@ public class Customer extends Person{
 //                    CartItem carts=itr2.next();
 //                    System.out.println("CArt holder : "+carts.getCustomer().getId()+"Cart Value"+carts.getProduct());
 //                }
-//                while (iterator.hasNext()) {
+//             
+//   while (iterator.hasNext()) {
 //                        Feedback customer=iterator.next();
 //                        System.out.println("Feedback :"+customer.getDescription());
 //                }
@@ -189,4 +244,5 @@ public class Customer extends Person{
 //            System.exit(0);
 //        }
 //        }
+    
 }

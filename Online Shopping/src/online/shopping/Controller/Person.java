@@ -13,6 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -95,6 +100,115 @@ public class Person implements Serializable  {
     public void setRegisterationDate(String registerationDate) {
         this.registerationDate = registerationDate;
     }
+    
+    
+    
+    public boolean addPerson(Person person)
+    {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+           
+              session.save(person);
+              transaction.commit();
+              session.close();           
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+      
+   }
+   
+   public Person selectPerson(int id)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Query query=session.createQuery("from person p where p.id=:id");
+              query.setParameter("id", id);
+              Person person = (Person)query.uniqueResult();
+              
+              return person ;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return null;
+         }
+      
+   }
+   
+  public boolean updateProduct(Person person)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              session.saveOrUpdate(session.merge(person));
+              transaction.commit();
+              session.close();           
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
+
+  public boolean deletePerson(int id)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              Person person = new Person();
+              person.setId(id);
+              session.delete(person);
+              transaction.commit();
+              session.close();           
+      
+              return true;
+             
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
+
+  
+    public static void main(String[] args) {
+        
+        Person per = new Person();
+        
+        
+        per.deletePerson(21);
+        
+        
+        
+        
+    }
+
+    
+    
+    
+    
+    
     
     
 }
