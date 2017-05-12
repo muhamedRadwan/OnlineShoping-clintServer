@@ -23,9 +23,10 @@ import org.hibernate.Transaction;
  *
  * @author Mohamed-A.Radwan
  */
-@Entity(name = "person")
 @Inheritance(strategy = InheritanceType.JOINED  )
 @DiscriminatorColumn(name = "type_id")
+@Entity(name = "person")
+
 public class Person implements Serializable  {
     @Id @GeneratedValue
     @Column(name = "id")

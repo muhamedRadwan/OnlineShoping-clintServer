@@ -7,7 +7,9 @@
 package online.shopping.Controller;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import javassist.bytecode.stackmap.BasicBlock;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -26,7 +28,7 @@ public class Management extends Person{
     
     
     
-   public boolean addProduct(Product product)
+   public boolean addProduct(Product product,int cateogryId , int currencyId)
    {
           try{
             
@@ -34,6 +36,13 @@ public class Management extends Person{
               Session session = ses.openSession();
               Transaction transaction = session.beginTransaction();
            
+              ProductCategory cateogry = (ProductCategory) selectObject("ProductCategory", cateogryId);
+              
+              Currency currency = (Currency) selectObject("Currency", currencyId);
+              
+              product.setProductCategory(cateogry);
+              product.setCurrency(currency);
+             
               session.save(product);
               transaction.commit();
               session.close();           
@@ -49,17 +58,17 @@ public class Management extends Person{
       
    }
    
-   public Product selectProduct(int id)
+   public Object selectObject(String className,int id)
    {
           try{
             
               SessionFactory ses = hibernateConfig.createSessionFactory();
               Session session = ses.openSession();
-              Query query=session.createQuery("from Product p where p.id=:id");
+              Query query=session.createQuery("from "+className+" o where o.id=:id");
               query.setParameter("id", id);
-              Product product = (Product)query.uniqueResult();
+              Object object = query.uniqueResult();
               
-              return product ;
+              return object ;
               
           }
          catch(HibernateException ex){
@@ -116,16 +125,71 @@ public class Management extends Person{
          }
    }
 
+  
+  public Collection<Object> viewAll(String className)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Query query=session.createQuery("from "+className);
+            
+              Collection<Object> list = query.list();
+              
+              return list;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return null;
+         }
+      
+   }
+   
 
 
     public static void main(String[] args) {  
     
         
         Management manage = new Management();
+  
+       //ProductCategory cateogry = (ProductCategory) manage.selectObject("ProductCategory", 1) ;
         
-        Product pro = manage.selectProduct(1);
+       //Currency currency = (Currency) manage.selectObject("Currency", 3);
+        Product product    = new Product();
+        ProductCategory pc = new  ProductCategory();
         
-        System.out.println(pro.getName());
-    
-    }
+       
+        product.setDescription("Lbs rgaly");
+        product.setName("Mohamed");
+        product.setProductCategory(pc);
+        product.setQuantity(50);
+        product.setPrice(250.5);
+        
+        manage.addProduct(product,1,3);
+              
+       //System.out.println(currency.getName());
+        
+        
+//        
+//         Collection<Object> object = manage.viewAll("Customer");
+//         Iterator<Object> itr = object.iterator();
+//         
+//              while (itr.hasNext()) {
+//                Customer q = (Customer) itr.next();
+//                System.out.println("Question Name: " + q.getId());
+//                //printing answers  
+//                Collection<CartItem> list2 = q.getCartItem();
+//                Collection<Feedback>feedbacks=q.getFeedbacks();
+//                Iterator<CartItem> itr2 = list2.iterator();
+//                Iterator<Feedback> iterator=feedbacks.iterator();
+//                while (itr2.hasNext()) {
+//                    CartItem carts=itr2.next();
+//                    System.out.println("CArt holder : "+carts.getCustomer().getId()+"Cart Value"+carts.getProduct());
+//                }
+//       
+//    
+//    }
+}
 }
