@@ -147,8 +147,10 @@ public class Product {
         pc.setDescription("ELBL7");
         pc.setName("Man");
         pc.setParentId(1);
+        
         offer.setName("Ramadan");
         offer.setPresentage(10);
+        product.setID(3);
         product.setCurrency(currency);
         product.setDescription("Lbs rgaly");
         product.setName("Mohamed");
@@ -156,12 +158,18 @@ public class Product {
         product.setProductCategory(pc);
         product.setQuantity(50);
         product.setPrice(250.5);
-        session.save(product);
-        session.getTransaction().commit();
+        
+        Management management = new Management();
+        
+        
+        
+        //session.save(product);
+        //session.getTransaction().commit();
        }catch(Exception e){
            e.printStackTrace();
            System.exit(0);
        }
         
-    }*/
+    }
+*/
 }
