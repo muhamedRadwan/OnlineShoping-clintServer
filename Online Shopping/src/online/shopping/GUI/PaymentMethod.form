@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="788" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="767" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="522" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="515" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,17 +49,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="CreditCard" max="32767" attributes="0"/>
+                      <Component id="CreditCard" alignment="1" max="32767" attributes="0"/>
                       <Component id="PayPal" alignment="1" max="32767" attributes="0"/>
                       <Component id="Cash" alignment="1" min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="PPaymentMethod" min="-2" pref="579" max="-2" attributes="0"/>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -68,12 +68,12 @@
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="Name" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSeparator1" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="Name" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSeparator1" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSeparator2" max="32767" attributes="0"/>
-                                  <Component id="Add" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Add" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -81,8 +81,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Logout" max="32767" attributes="0"/>
-                              <Component id="Back" max="32767" attributes="0"/>
+                              <Component id="Logout" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Back" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -99,8 +99,8 @@
                   <Component id="Back" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="Name" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="Name" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="Cash" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -122,7 +122,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="PPaymentMethod" min="-2" pref="327" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -536,7 +536,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
@@ -556,7 +556,7 @@
                                       <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="pass" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="mail" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mail" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

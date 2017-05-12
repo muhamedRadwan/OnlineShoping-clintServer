@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,13 +9,13 @@ package online.shopping.GUI;
  *
  * @author Lobna
  */
-public class PaymentMethod extends Window {
+public class PaymentMethod extends javax.swing.JFrame {
 
     /**
-     * Creates new form PaymentMethod
+     * Creates new form PaymentMetho
      */
     public PaymentMethod(String title) {
-        super(title);
+        super (title);
         initComponents();
     }
 
@@ -71,7 +70,7 @@ public class PaymentMethod extends Window {
         Back = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
         jPanel1.setPreferredSize(new java.awt.Dimension(550, 500));
@@ -445,7 +444,7 @@ public class PaymentMethod extends Window {
                     .addComponent(Cash, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(PPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -498,7 +497,7 @@ public class PaymentMethod extends Window {
                         .addComponent(PayPal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))))
         );
@@ -507,57 +506,25 @@ public class PaymentMethod extends Window {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashActionPerformed
+    private void NameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NameMouseClicked
         // TODO add your handling code here:
-        PPaymentMethod.setVisible(true);
-        //Deleting all panel
-        PPaymentMethod.removeAll();
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-        
-        //Adding panel
-        PPaymentMethod.add(PCash);
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-    }//GEN-LAST:event_CashActionPerformed
+        Name.setText("");
+    }//GEN-LAST:event_NameMouseClicked
 
-    private void PayPalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayPalActionPerformed
+    private void AddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddMouseClicked
         // TODO add your handling code here:
-        PPaymentMethod.setVisible(true);
-        //Deleting all panel
-        PPaymentMethod.removeAll();
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-        
-        //Adding panel
-        PPaymentMethod.add(PPayPal);
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-    }//GEN-LAST:event_PayPalActionPerformed
-
-    private void CreditCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditCardActionPerformed
-        // TODO add your handling code here:
-        PPaymentMethod.setVisible(true);
-        //Deleting all panel
-        PPaymentMethod.removeAll();
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-        
-        //Adding panel
-        PPaymentMethod.add(PCreditCard);
-        PPaymentMethod.repaint();
-        PPaymentMethod.revalidate();
-    }//GEN-LAST:event_CreditCardActionPerformed
+        Add.setText("");
+    }//GEN-LAST:event_AddMouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
@@ -571,17 +538,19 @@ public class PaymentMethod extends Window {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        notimplmented imp = new notimplmented(this);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cardNoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNoMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNoMouseDragged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        notimplmented imp = new notimplmented(this);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        notimplmented imp = new notimplmented(this);
+        logout log = new logout(this);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void mailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mailMouseClicked
@@ -594,19 +563,53 @@ public class PaymentMethod extends Window {
         pass.setText("");
     }//GEN-LAST:event_passMouseClicked
 
-    private void cardNoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardNoMouseDragged
+    private void CashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cardNoMouseDragged
+        PPaymentMethod.setVisible(true);
+        //Deleting all panel
+        PPaymentMethod.removeAll();
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
 
-    private void NameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NameMouseClicked
-        // TODO add your handling code here:
-        Name.setText("");
-    }//GEN-LAST:event_NameMouseClicked
+        //Adding panel
+        PPaymentMethod.add(PCash);
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
+    }//GEN-LAST:event_CashActionPerformed
 
-    private void AddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddMouseClicked
+    private void CreditCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditCardActionPerformed
         // TODO add your handling code here:
-        Add.setText("");
-    }//GEN-LAST:event_AddMouseClicked
+        PPaymentMethod.setVisible(true);
+        //Deleting all panel
+        PPaymentMethod.removeAll();
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
+
+        //Adding panel
+        PPaymentMethod.add(PCreditCard);
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
+    }//GEN-LAST:event_CreditCardActionPerformed
+
+    private void PayPalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayPalActionPerformed
+        // TODO add your handling code here:
+        PPaymentMethod.setVisible(true);
+        //Deleting all panel
+        PPaymentMethod.removeAll();
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
+
+        //Adding panel
+        PPaymentMethod.add(PPayPal);
+        PPaymentMethod.repaint();
+        PPaymentMethod.revalidate();
+    }//GEN-LAST:event_PayPalActionPerformed
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Item("Product").setVisible(true);
+    }//GEN-LAST:event_jLabel16MouseClicked
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
         // TODO add your handling code here:
@@ -614,11 +617,9 @@ public class PaymentMethod extends Window {
         new Item("Product").setVisible(true);
     }//GEN-LAST:event_BackMouseClicked
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new Item("Product").setVisible(true);
-    }//GEN-LAST:event_jLabel16MouseClicked
+    /**
+     * @param args the command line arguments
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Add;
@@ -664,232 +665,3 @@ public class PaymentMethod extends Window {
     private javax.swing.JPasswordField pass;
     // End of variables declaration//GEN-END:variables
 }
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package online.shopping.GUI;
-
-/**
- *
- * @author Lobna
- */
-public class PaymentMethod extends Window {
-
-    /**
-     * Creates new form PaymentMethod
-     */
-    public PaymentMethod(String title) {
-        super(title);
-        initComponents();
-    }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
-
-        jButton1.setText("Cash");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("PayPal");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Credit Card");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Logout");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("Back");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Name");
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Address");
-
-        jTextField1.setBackground(new java.awt.Color(36, 47, 65));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("John");
-        jTextField1.setBorder(null);
-
-        jTextField2.setBackground(new java.awt.Color(36, 47, 65));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("61st,");
-        jTextField2.setBorder(null);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(223, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator2)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))))
-                        .addGap(203, 203, 203))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        logout log = new logout(this);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        Cash cash = new Cash("Cash");
-        cash.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        MasterCard card = new MasterCard("Master Card");
-        card.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        CreditCard card = new CreditCard("Credit Card");
-        card.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        if(new back().Back==1)
-            new Cart("Cart").setVisible(true);
-        else if(new back().Back==2)
-            new Item("Item").setVisible(true);
-        
-            
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    // End of variables declaration//GEN-END:variables
-}
->>>>>>> 69824ecd5c3c3b74fac50f09717950290205905d
