@@ -12,9 +12,11 @@ import java.util.Iterator;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -89,10 +91,51 @@ public class Customer extends Person{
 
 
     
+    public boolean addToCart(int p,int c,int quantity){
+      try{
+        Session session = hibernateConfig.createSessionFactory().openSession();
+        session.getTransaction().begin();
+        CartItem cart=new CartItem();
+        Product product=(Product)session.get(Product.class,p);
+        Customer customer=(Customer)session.get(Customer.class, c);
+        cart.setProduct(product);
+        cart.setQuantity(quantity);
+        cart.setCustomer(customer);
+        session.save(cart);
+        session.getTransaction().commit();
+       
+      }catch(Exception e){
+      System.out.println(e);
+             
+      }
+     return true;
+    }
+    
+    public boolean updateCart(int cartId,int quantity){
+   try{ Session session =hibernateConfig.createSessionFactory().openSession();
+    session.getTransaction().begin();
+    CartItem cart=(CartItem)session.get(CartItem.class, cartId);
+    if (quantity!=0){
+      cart.setQuantity(quantity);
+    }
+    else{
+     session.delete(cart);
+    }
+    session.save(cart);
+    session.getTransaction().commit();
+   }catch(Exception e){
+       System.out.println(e);
+   }
+    return true;
+   }
+    
     
     
     public  boolean MakeFeedBack(Feedback feedback){
             return  false;
+            
+            
+            
     }
    
     
@@ -108,17 +151,17 @@ public class Customer extends Person{
         this.feedbacks = feedbacks;
     }
     
-    public static SessionFactory createSessionFactory() {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
-                configuration.getProperties()).build();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        return sessionFactory;
-    }
-    
+   @PersistenceContext  public static EntityManager entityManager;
 
-//    public static void main(String[] args) {
+    
+  public static void main(String[] args) {
+ // Customer customer=entityManager.getReference(Customer.class,14);
+  //Product product=entityManager.getReference(Product.class,3);
+  Customer customer = new Customer();
+  
+  customer.updateCart(21,0);
+  
+  }
 //        try {
 //            SessionFactory ses = createSessionFactory();
 //            Session session = ses.openSession();

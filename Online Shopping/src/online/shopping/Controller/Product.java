@@ -39,13 +39,13 @@ public class Product {
     private int quantity;
     @Column(name = "Description")
     private String Description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "cateogry_id")
     private ProductCategory productCategory;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "currency_id")
     private Currency currency;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinTable(name = "offer_product",
             joinColumns = {@JoinColumn(name = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "offer_id")}
@@ -125,6 +125,8 @@ public class Product {
 
     public void setOffer(Offer offer) {
         this.offer = offer;
+        
+   
     }
        public static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration().configure();
@@ -132,7 +134,7 @@ public class Product {
                 configuration.getProperties()).build();
         return configuration.buildSessionFactory(serviceRegistry);
     }
-/*
+
     public static void main(String[] args) {
        try{
         SessionFactory sessionFactory = createSessionFactory();
@@ -147,8 +149,8 @@ public class Product {
         pc.setDescription("ELBL7");
         pc.setName("Man");
         pc.setParentId(1);
-        offer.setName("Ramadan");
-        offer.setPresentage(10);
+        offer.setName("Ramada54n");
+        offer.setPresentage(50);
         product.setCurrency(currency);
         product.setDescription("Lbs rgaly");
         product.setName("Mohamed");
@@ -163,5 +165,5 @@ public class Product {
            System.exit(0);
        }
         
-    }*/
+    }
 }
