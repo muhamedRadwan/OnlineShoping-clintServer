@@ -21,6 +21,9 @@ public class OnlineShopping {
         
         Home x = new Home ("Home");
         x.setVisible(true);
+        
+//        Offers x = new Offers("Offer");
+//        x.setVisible(true);
     }
     
 }

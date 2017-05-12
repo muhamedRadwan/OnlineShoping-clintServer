@@ -35,4 +35,12 @@ public class ActionEmployee {
         Img = img;
     }
     
+    public void Search(String id){
+        ID = Integer.parseInt(id);
+        
+    }
+    public void delete(String search){
+        this.ID = Integer.parseInt(search);
+    }
+    
 }
