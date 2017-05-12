@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,10 +13,11 @@ import org.hibernate.service.ServiceRegistry;
 
 /**
  *
- * @author c w
+ * @author houdavic
  */
 public class hibernateConfig {
-     public static SessionFactory createSessionFactory() {
+  
+      public static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration();
         configuration.configure();
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
@@ -23,4 +25,6 @@ public class hibernateConfig {
         SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;
     }
+  
+      
 }

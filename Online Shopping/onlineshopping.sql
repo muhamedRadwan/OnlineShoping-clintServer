@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2017 at 09:00 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: May 11, 2017 at 06:16 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 7.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shopingdb`
+-- Database: `onlineshopping`
 --
 
 -- --------------------------------------------------------
@@ -37,9 +37,10 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `name`, `parent_id`) VALUES
-(1, 'Egypt', NULL),
-(2, 'UAE', NULL),
-(3, 'Saudi Arabia', NULL),
+(0, 'Earth', NULL),
+(1, 'Egypt', 0),
+(2, 'UAE', 0),
+(3, 'Saudi Arabia', 0),
 (4, 'Alexanderia', 1),
 (5, 'Cairo', 1),
 (6, 'Giza', 1),
@@ -54,26 +55,28 @@ INSERT INTO `address` (`id`, `name`, `parent_id`) VALUES
 (16, '6 October', 6),
 (17, 'Maadi', 5),
 (18, 'Helwan', 5),
-(19, 'Nasr city', 5);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `customer_id`) VALUES
-(1, 1),
-(2, 1);
+(19, 'Nasr city', 5),
+(20, 'String', 1),
+(21, 'String', 1),
+(22, 'String', 1),
+(26, 'tahrir', 0),
+(27, 'tahrir', 1),
+(33, 'tahrir', 1),
+(35, 'tahrir', 1),
+(37, 'tahrir', 1),
+(38, 'tahrir', 1),
+(39, 'tahrir', 1),
+(40, 'tahrir', 1),
+(41, 'tahrir', 1),
+(42, 'tahrir', 1),
+(54, 'tahrir', 1),
+(55, 'tahrir', 1),
+(56, 'tahrir', 1),
+(62, 'tahrir', 1),
+(63, 'tahrir', 1),
+(64, 'Mdar', 3),
+(65, 'Mdar', 3),
+(66, 'Maadi', 2);
 
 -- --------------------------------------------------------
 
@@ -84,17 +87,23 @@ INSERT INTO `cart` (`id`, `customer_id`) VALUES
 CREATE TABLE `cart_item` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `cart_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `quantity` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart_item`
 --
 
-INSERT INTO `cart_item` (`id`, `product_id`, `cart_id`, `quantity`) VALUES
-(1, 1, 1, 1),
-(2, 2, 1, 2);
+INSERT INTO `cart_item` (`id`, `product_id`, `quantity`, `customer_id`) VALUES
+(20, 4, 500, 14),
+(21, 4, 500, 15),
+(24, 4, 500, 20),
+(25, 4, 500, 21),
+(26, 4, 500, 22),
+(32, 4, 500, 28),
+(33, 4, 500, 29),
+(34, 4, 500, 30);
 
 -- --------------------------------------------------------
 
@@ -115,7 +124,8 @@ CREATE TABLE `cateogry` (
 
 INSERT INTO `cateogry` (`id`, `name`, `description`, `parent_id`) VALUES
 (1, 'men', 'men age is greater than 20', NULL),
-(2, 'T-shirt', '...', 1);
+(2, 'T-shirt', '...', 1),
+(7, 'Man', 'ELBL7', 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +146,8 @@ CREATE TABLE `currency` (
 INSERT INTO `currency` (`id`, `name`, `conversionValue`) VALUES
 (1, 'Dollar', 18.7),
 (2, 'Euro', 20.5),
-(3, 'L.E', 1);
+(3, 'L.E', 1),
+(8, 'Dollar', 5.1);
 
 -- --------------------------------------------------------
 
@@ -146,19 +157,24 @@ INSERT INTO `currency` (`id`, `name`, `conversionValue`) VALUES
 
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address_id` int(11) NOT NULL,
-  `phoneNumber` varchar(30) NOT NULL
+  `email` varchar(50) DEFAULT NULL,
+  `address_id` int(11) DEFAULT NULL,
+  `phoneNumber` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `person_id`, `email`, `address_id`, `phoneNumber`) VALUES
-(1, 1, 'hamada@yahoo.com', 1, '01022323355634'),
-(2, 4, 'hema@yahoo.com', 4, '01022323355634');
+INSERT INTO `customer` (`id`, `email`, `address_id`, `phoneNumber`) VALUES
+(14, 'Mohamed@', 41, '01145'),
+(15, 'Mohamed@', 42, '01145'),
+(20, 'Mohamed@', 54, '01145'),
+(21, 'Mohamed@', 55, '01145'),
+(22, 'Mohamed@', 56, '01145'),
+(28, 'Mohamed@', 62, '01145'),
+(29, 'Mohamed@', 63, '01145'),
+(30, 'muhameda.radwan@gmail.com', 66, '01148037467');
 
 -- --------------------------------------------------------
 
@@ -168,9 +184,9 @@ INSERT INTO `customer` (`id`, `person_id`, `email`, `address_id`, `phoneNumber`)
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
   `description` varchar(100) NOT NULL,
-  `date` varchar(30) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `seen` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -179,7 +195,12 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `customer_id`, `description`, `date`, `seen`) VALUES
-(1, 1, 'system not work good', '29/4/2017', 0);
+(2, 20, 'SASASAASas', '2017-05-09 04:54:52', 0),
+(3, 21, 'SASASAASas', '2017-05-09 04:59:22', 0),
+(4, 22, 'SASASAASas', '2017-05-09 05:35:45', 0),
+(10, 28, 'SASASAASas', '2017-05-09 06:06:04', 0),
+(11, 29, 'SASASAASas', '2017-05-09 18:21:04', 0),
+(12, 30, 'This Amazing site', '2017-05-11 14:42:28', 0);
 
 -- --------------------------------------------------------
 
@@ -190,16 +211,20 @@ INSERT INTO `feedback` (`id`, `customer_id`, `description`, `date`, `seen`) VALU
 CREATE TABLE `invoice` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `address_id` int(11) NOT NULL,
+  `cost` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `invoice`
 --
 
-INSERT INTO `invoice` (`id`, `order_id`, `customer_id`) VALUES
-(1, 1, 1),
-(2, 2, 1);
+INSERT INTO `invoice` (`id`, `order_id`, `customer_id`, `content`, `address_id`, `cost`) VALUES
+(3, 6, 28, 'Ra8y', 62, 5.2),
+(4, 7, 29, 'Ra8y', 63, 5.2),
+(5, 8, 30, '10 pices cakes 250', 66, 250);
 
 -- --------------------------------------------------------
 
@@ -214,14 +239,6 @@ CREATE TABLE `notification` (
   `date` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`id`, `offer_id`, `customer_id`, `date`) VALUES
-(1, 2, 1, '29/4/2017'),
-(2, 1, 1, '29/4/2017');
-
 -- --------------------------------------------------------
 
 --
@@ -230,18 +247,38 @@ INSERT INTO `notification` (`id`, `offer_id`, `customer_id`, `date`) VALUES
 
 CREATE TABLE `offer` (
   `id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `discount` float NOT NULL
+  `name` varchar(20) NOT NULL,
+  `presentage` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `offer`
 --
 
-INSERT INTO `offer` (`id`, `person_id`, `product_id`, `discount`) VALUES
-(1, 3, 2, 10),
-(2, 3, 1, 15);
+INSERT INTO `offer` (`id`, `name`, `presentage`) VALUES
+(1, 'Ramadan', 20),
+(5, 'Ramadan', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offer_product`
+--
+
+CREATE TABLE `offer_product` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `offer_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `offer_product`
+--
+
+INSERT INTO `offer_product` (`id`, `product_id`, `offer_id`) VALUES
+(1, 2, 1),
+(2, 1, 1),
+(3, 11, 5);
 
 -- --------------------------------------------------------
 
@@ -252,8 +289,8 @@ INSERT INTO `offer` (`id`, `person_id`, `product_id`, `discount`) VALUES
 CREATE TABLE `order_1` (
   `id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `date` varchar(30) NOT NULL,
-  `paymentMethod_id` int(11) NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `paymentMethod_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -261,8 +298,9 @@ CREATE TABLE `order_1` (
 --
 
 INSERT INTO `order_1` (`id`, `customer_id`, `date`, `paymentMethod_id`) VALUES
-(1, 1, '29/4/2017', 1),
-(2, 1, '29/4/2017', 1);
+(6, 28, '2017-05-09 06:06:04', NULL),
+(7, 29, '2017-05-09 18:21:04', NULL),
+(8, 30, '2017-05-11 14:42:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -275,6 +313,15 @@ CREATE TABLE `order_cart_item` (
   `cartItem_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_cart_item`
+--
+
+INSERT INTO `order_cart_item` (`id`, `cartItem_id`, `order_id`) VALUES
+(1, 32, 6),
+(2, 33, 7),
+(3, 34, 8);
 
 -- --------------------------------------------------------
 
@@ -348,14 +395,6 @@ CREATE TABLE `payment_selected_option_value` (
   `value` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `payment_selected_option_value`
---
-
-INSERT INTO `payment_selected_option_value` (`id`, `order_id`, `paymentSelectedOption_id`, `value`) VALUES
-(1, 1, 1, '12123342453453453534'),
-(2, 1, 2, 'Egypt');
-
 -- --------------------------------------------------------
 
 --
@@ -368,8 +407,8 @@ CREATE TABLE `person` (
   `lastName` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `type_id` int(11) NOT NULL,
-  `registerationDate` varchar(30) NOT NULL
+  `type_id` varchar(30) NOT NULL,
+  `registerationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -377,10 +416,26 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`id`, `firstName`, `lastName`, `username`, `password`, `type_id`, `registerationDate`) VALUES
-(1, 'ahmed', 'adel', 'hamada', '123321', 1, '29/4/2017'),
-(2, 'mohamed', 'sleem', 'sleem95', '321123', 2, '25/3/2017'),
-(3, 'mostafa', 'wael', 'mostafa_123', '123456789', 3, '30/4/2017'),
-(4, 'ibrahim', 'shrif', 'hema_0', '123123123', 1, '30/4/2017');
+(1, 'ahmed', 'adel', 'hamada', '123321', '1', '0000-00-00 00:00:00'),
+(2, 'mohamed', 'sleem', 'sleem95', '321123', '2', '0000-00-00 00:00:00'),
+(3, 'mostafa', 'wael', 'mostafa_123', '123456789', '3', '0000-00-00 00:00:00'),
+(4, 'ibrahim', 'shrif', 'hema_0', '123123123', '1', '0000-00-00 00:00:00'),
+(7, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', '1', '2017-05-09 01:46:40'),
+(9, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', '1', '2017-05-09 02:03:31'),
+(10, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:11:41'),
+(11, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:17:16'),
+(12, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:17:53'),
+(13, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:20:34'),
+(14, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:25:04'),
+(15, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 02:25:23'),
+(16, 'ads', 'asd', 'sdads', 'sdas', 'Customer', '2017-05-09 04:37:42'),
+(17, 'ads', 'asd', 'sdads', 'sdas', 'Customer', '2017-05-09 04:38:04'),
+(20, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 04:54:52'),
+(21, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 04:59:21'),
+(22, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 05:35:45'),
+(28, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 06:06:04'),
+(29, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-09 18:21:04'),
+(30, 'Mohamed', 'Ahmed', 'mohamedahmed', '1234', 'Customer', '2017-05-11 14:42:28');
 
 -- --------------------------------------------------------
 
@@ -424,9 +479,9 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `cateogry_id` int(11) NOT NULL,
+  `cateogry_id` int(11) DEFAULT NULL,
   `unitPrice` float NOT NULL,
-  `currency_id` int(11) NOT NULL,
+  `currency_id` int(11) DEFAULT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -436,7 +491,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `description`, `cateogry_id`, `unitPrice`, `currency_id`, `quantity`) VALUES
 (1, 'adidas', '\r\nt-shirt with all sizes \r\nfor winter ', 2, 122.99, 1, 60),
-(2, 'nike', 'classic shoes for parties   ', 1, 349.99, 2, 38);
+(2, 'nike', 'classic shoes for parties   ', 1, 349.99, 2, 38),
+(3, 'asd', 'asdklasmd', 2, 500, 3, 500),
+(4, 'asd', 'asdksalasmd', 1, 500, 3, 500),
+(5, 'asd', 'asdksalasmd', 1, 500, 2, 5000),
+(11, 'Mohamed', 'Lbs rgaly', 7, 250.5, 8, 50);
 
 -- --------------------------------------------------------
 
@@ -579,19 +638,12 @@ ALTER TABLE `address`
   ADD KEY `address_parent` (`parent_id`);
 
 --
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cart_customer` (`customer_id`);
-
---
 -- Indexes for table `cart_item`
 --
 ALTER TABLE `cart_item`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `cart_item__cart` (`cart_id`),
-  ADD KEY `cart_item__product` (`product_id`);
+  ADD KEY `cart_item__product` (`product_id`),
+  ADD KEY `cart_item_Customer` (`customer_id`);
 
 --
 -- Indexes for table `cateogry`
@@ -611,7 +663,6 @@ ALTER TABLE `currency`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `person_id` (`person_id`),
   ADD KEY `customer_address` (`address_id`);
 
 --
@@ -627,7 +678,8 @@ ALTER TABLE `feedback`
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`id`),
   ADD KEY `invoice_customer` (`customer_id`),
-  ADD KEY `invoice__order_1` (`order_id`);
+  ADD KEY `invoice__order_1` (`order_id`),
+  ADD KEY `address_id` (`address_id`);
 
 --
 -- Indexes for table `notification`
@@ -641,9 +693,15 @@ ALTER TABLE `notification`
 -- Indexes for table `offer`
 --
 ALTER TABLE `offer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `offer_product`
+--
+ALTER TABLE `offer_product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `offer_person` (`person_id`),
-  ADD KEY `offer_product` (`product_id`);
+  ADD KEY `offer_product` (`product_id`),
+  ADD KEY `offer_product_offer` (`offer_id`);
 
 --
 -- Indexes for table `order_1`
@@ -760,62 +818,62 @@ ALTER TABLE `type_selected_privilege`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `cart_item`
 --
 ALTER TABLE `cart_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `cateogry`
 --
 ALTER TABLE `cateogry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `currency`
 --
 ALTER TABLE `currency`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `offer_product`
+--
+ALTER TABLE `offer_product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order_1`
 --
 ALTER TABLE `order_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `order_cart_item`
 --
 ALTER TABLE `order_cart_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `payment_method`
 --
@@ -835,12 +893,12 @@ ALTER TABLE `payment_selected_option`
 -- AUTO_INCREMENT for table `payment_selected_option_value`
 --
 ALTER TABLE `payment_selected_option_value`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `privilege`
 --
@@ -850,7 +908,7 @@ ALTER TABLE `privilege`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `product_feature`
 --
@@ -892,16 +950,10 @@ ALTER TABLE `address`
   ADD CONSTRAINT `address_parent` FOREIGN KEY (`parent_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `cart_item`
 --
 ALTER TABLE `cart_item`
-  ADD CONSTRAINT `cart_item__cart` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cart_item_Customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_item__product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -914,35 +966,36 @@ ALTER TABLE `cateogry`
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `customer_person` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Customer_Person` FOREIGN KEY (`id`) REFERENCES `person` (`id`),
+  ADD CONSTRAINT `customer_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `feedback_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `invoice`
 --
 ALTER TABLE `invoice`
   ADD CONSTRAINT `invoice__order_1` FOREIGN KEY (`order_id`) REFERENCES `order_1` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `invoice_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `invoice_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notification`
 --
 ALTER TABLE `notification`
-  ADD CONSTRAINT `notification__offer` FOREIGN KEY (`offer_id`) REFERENCES `offer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `notification_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `notification__offer` FOREIGN KEY (`offer_id`) REFERENCES `offer_product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notification_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `offer`
+-- Constraints for table `offer_product`
 --
-ALTER TABLE `offer`
-  ADD CONSTRAINT `offer_person` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `offer_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `offer_product`
+  ADD CONSTRAINT `offer_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `offer_product_offer` FOREIGN KEY (`offer_id`) REFERENCES `offer` (`id`);
 
 --
 -- Constraints for table `order_1`
@@ -971,12 +1024,6 @@ ALTER TABLE `payment_selected_option`
 ALTER TABLE `payment_selected_option_value`
   ADD CONSTRAINT `payment_selected_option_values__order_1` FOREIGN KEY (`order_id`) REFERENCES `order_1` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_selected_option_values__payment_selected_option` FOREIGN KEY (`paymentSelectedOption_id`) REFERENCES `payment_selected_option` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `person`
---
-ALTER TABLE `person`
-  ADD CONSTRAINT `person_type` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`
