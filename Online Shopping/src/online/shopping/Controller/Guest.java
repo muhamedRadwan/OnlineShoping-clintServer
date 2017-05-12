@@ -6,16 +6,46 @@
  */
 package online.shopping.Controller;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 /**
  *
  * @author Mohamed-A.Radwan
  */
 public class Guest extends SystemTool{
-    public boolean login(String username,String password){
-        return false;
+    public static Person login(String username,String password){
+       try{
+        SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
+        Session session=sessionFactory.openSession();
+        Query query=session.createQuery("from person p where p.password=:passowrd and p.username=:username");
+        query.setParameter("username", username);
+        query.setParameter("passowrd", password);
+        Person person=(Person)query.uniqueResult();
+        return person;
+       }catch(Exception ex){
+        ex.printStackTrace();
+        return null;
+       }
     }
-    public boolean register (Customer customer){
-        return false;
+    public static boolean register (Customer customer){
+     try{
+         SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
+         Session session=sessionFactory.openSession();
+         session.save(customer);
+         session.getTransaction().commit();
+         return true;
+     }catch(Exception ex){
+         System.out.println(ex);
+         System.exit(0);
+         return false;
+     }
+    }
+    
+    
+    public static void main(String[] args) {
+      
     }
 }
 

@@ -108,16 +108,19 @@ public class Customer extends Person{
         this.feedbacks = feedbacks;
     }
     
-    public static SessionFactory createSessionFactory() {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
-                configuration.getProperties()).build();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        return sessionFactory;
+    public boolean addToCart(Product product){
+        try{
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return  false;
+        }
+        return false;
     }
     
-
+    
+    
+    
 //    public static void main(String[] args) {
 //        try {
 //            SessionFactory ses = createSessionFactory();
