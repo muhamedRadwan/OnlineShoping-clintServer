@@ -106,6 +106,7 @@ public class Invoice implements Iinvoice{
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
     /*
     public static void main(String[] args) {
         SessionFactory sesionFactory=Customer.createSessionFactory();

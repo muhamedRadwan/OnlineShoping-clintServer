@@ -31,8 +31,9 @@ public class CartItem implements Serializable{
     private int id;
     @Column(name = "quantity")
     private int quantity;
-    @Column(name = "product_id")
-    private int product;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Product product;
     @ManyToOne(fetch = FetchType.EAGER)
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "customer_id")
@@ -62,11 +63,11 @@ public class CartItem implements Serializable{
         this.quantity = quantity;
     }
 
-    public int getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(int product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 }

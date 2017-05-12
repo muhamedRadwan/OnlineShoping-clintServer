@@ -39,12 +39,12 @@ public class Product {
     private int quantity;
     @Column(name = "Description")
     private String Description;
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "cateogry_id")
     private ProductCategory productCategory;
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "currency_id")
-    private Currency currency;
+    private Currency currency;   
     @ManyToOne()
     @JoinTable(name = "offer_product",
             joinColumns = {@JoinColumn(name = "product_id")},
@@ -125,6 +125,8 @@ public class Product {
 
     public void setOffer(Offer offer) {
         this.offer = offer;
+        
+   
     }
        public static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration().configure();
@@ -132,7 +134,7 @@ public class Product {
                 configuration.getProperties()).build();
         return configuration.buildSessionFactory(serviceRegistry);
     }
-/*
+
     public static void main(String[] args) {
        try{
         SessionFactory sessionFactory = createSessionFactory();
@@ -147,6 +149,7 @@ public class Product {
         pc.setDescription("ELBL7");
         pc.setName("Man");
         pc.setParentId(1);
+
         
         offer.setName("Ramadan");
         offer.setPresentage(10);
@@ -171,5 +174,4 @@ public class Product {
        }
         
     }
-*/
 }

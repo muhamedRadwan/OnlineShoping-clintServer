@@ -6,6 +6,9 @@
  */
 package online.shopping.Controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.hibernate.Session;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,8 +27,36 @@ import org.hibernate.Transaction;
 public class Management extends Person{
     HashMap<String, String> priviledgeHash;
     
+    public void AddOfferProduct(ArrayList<Integer> products,int offer){
+        Session session=hibernateConfig.createSessionFactory().openSession();
+        session.beginTransaction();
+        Offer offer1= (Offer)session.get(Offer.class, offer);
+        for(int prod:products){
+            Product product =(Product)session.get(Product.class, prod);
+            product.setOffer(offer1);
+            session.saveOrUpdate(session.merge(product));
+            
+        }
+      session.getTransaction().commit();
+    }
+    public boolean makeOffer(String offerName, int presentage){
+   try{ Session session =hibernateConfig.createSessionFactory().openSession();
+    session.beginTransaction();
+    Offer offer =new Offer();
+    offer.setName(offerName);
+    offer.setPresentage(presentage);
+    session.save(offer);
+
     
-    
+    session.getTransaction().commit();
+    session.close();
+   }catch(Exception e){
+       System.out.println(e);
+                }
+    return true;
+    }
+   
+
     
     
    public boolean addProduct(Product product,int cateogryId , int currencyId)
@@ -170,26 +201,5 @@ public class Management extends Person{
         manage.addProduct(product,1,3);
               
        //System.out.println(currency.getName());
-        
-        
-//        
-//         Collection<Object> object = manage.viewAll("Customer");
-//         Iterator<Object> itr = object.iterator();
-//         
-//              while (itr.hasNext()) {
-//                Customer q = (Customer) itr.next();
-//                System.out.println("Question Name: " + q.getId());
-//                //printing answers  
-//                Collection<CartItem> list2 = q.getCartItem();
-//                Collection<Feedback>feedbacks=q.getFeedbacks();
-//                Iterator<CartItem> itr2 = list2.iterator();
-//                Iterator<Feedback> iterator=feedbacks.iterator();
-//                while (itr2.hasNext()) {
-//                    CartItem carts=itr2.next();
-//                    System.out.println("CArt holder : "+carts.getCustomer().getId()+"Cart Value"+carts.getProduct());
-//                }
-//       
-//    
-//    }
 }
 }

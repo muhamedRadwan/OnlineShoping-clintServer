@@ -6,12 +6,14 @@
  */
 package online.shopping.Controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -27,6 +29,17 @@ public class Offer extends DocretorInvoice{
     private int presentage;
     @Column(name = "name")
     private String name; 
+    @OneToMany(fetch =  FetchType.EAGER)
+    @JoinTable(name = "offer_product",
+            joinColumns = {@JoinColumn(name = "offer_id")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id")})
+    Collection<Product> products;
+
+    public Offer() {
+    products=new ArrayList<>(20);
+    }
+    
+    
     public int getPresentage() {
         return presentage;
     }
