@@ -220,9 +220,9 @@ public class login extends Window {
                 this.setVisible(false);
                 new Employee("Employee").setVisible(true);
             }
-        else if(jTextField1.getText().equals("Coustmer")&&jPasswordField1.getText().equals("Coustmer")){
+        else if(jTextField1.getText().equals("Customer")&&jPasswordField1.getText().equals("Customer")){
                 this.setVisible(false);
-                new Coustmer("Coustmer").setVisible(true);
+                new Coustmer("Customer").setVisible(true);
             }
             else
                 JOptionPane.showMessageDialog(null, "Wrong username or password");

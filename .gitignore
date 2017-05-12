@@ -4,3 +4,5 @@ test
 *.zip
 Online Shopping/nbproject/private/
 Online Shopping/build/
+/Online Shopping/dist/
+/OnlineShoping-clintServer
