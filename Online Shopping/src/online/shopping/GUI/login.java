@@ -5,7 +5,10 @@
  */
 package online.shopping.GUI;
 
+import java.util.StringJoiner;
 import javax.swing.JOptionPane;
+import online.shopping.Controller.Guest;
+import online.shopping.Controller.Person;
 
 /**
  *
@@ -212,20 +215,11 @@ public class login extends Window {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
-        if(jTextField1.getText().equals("Admin")&&jPasswordField1.getText().equals("Admin")){
-                this.setVisible(false);
-                new Admin("Admin").setVisible(true);
-            }
-        else if(jTextField1.getText().equals("Employee")&&jPasswordField1.getText().equals("Employee")){
-                this.setVisible(false);
-                new Employee("Employee").setVisible(true);
-            }
-        else if(jTextField1.getText().equals("Customer")&&jPasswordField1.getText().equals("Customer")){
-                this.setVisible(false);
-                new Coustmer("Customer").setVisible(true);
-            }
-            else
-                JOptionPane.showMessageDialog(null, "Wrong username or password");
+        String username=jTextField1.getText();
+        char [] chars=jPasswordField1.getPassword();
+        String pass=String.copyValueOf(chars);
+        Guest guest=new Guest();
+        Person person=guest.login(username, pass);
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked

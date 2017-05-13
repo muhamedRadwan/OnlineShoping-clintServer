@@ -113,16 +113,19 @@ public class Management extends Person{
   public boolean updateProduct(Product product)
    {
           try{
-            
+              
+              
               SessionFactory ses = hibernateConfig.createSessionFactory();
               Session session = ses.openSession();
+              Currency currency=(Currency)session.get(Currency.class, product.getCurrency().getId());
+              ProductCategory category=(ProductCategory)session.get(ProductCategory.class, product.getProductCategory().getID());
               Transaction transaction = session.beginTransaction();
+              product.setCurrency(currency);
+              product.setProductCategory(category);
               session.saveOrUpdate(session.merge(product));
               transaction.commit();
               session.close();           
-      
               return true;
-              
           }
          catch(HibernateException ex){
              System.out.println(ex);

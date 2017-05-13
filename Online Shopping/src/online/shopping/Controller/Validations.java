@@ -82,9 +82,12 @@ public  class Validations {
 	}
    public  boolean Is_digit(String Word)
    {
-      pattern = pattern.compile("^[0-9]*$");
-      matcher = pattern.matcher(Word);
-      return matcher.matches();
+       try{
+           Integer.parseInt(Word);
+           return true;
+       }catch(Exception e){
+           return false;
+       }
    }
    
    public  boolean Is_alpha(String Word)
@@ -134,9 +137,10 @@ public  class Validations {
        }
    }
 
+    
    public  boolean Is_alphanumaric (String string)
    {
-       pattern = pattern.compile("^[a-zA-Z0-9]*$");
+       pattern = pattern.compile("^[a-zA-Z0-9]| *$");
        matcher = pattern.matcher(string);
        return matcher.matches();
    }

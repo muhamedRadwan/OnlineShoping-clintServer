@@ -5,12 +5,15 @@
  */
 package online.shopping.Controller;
 
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
@@ -20,6 +23,7 @@ import javax.persistence.Table;
 @Table(name = "cateogry")
 public class ProductCategory {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int ID;
     @Column(name = "name")
     private String name;
@@ -55,9 +59,11 @@ public class ProductCategory {
     public int getParentId() {
         return parentId;
     }
+    
 
     public void setParentId(int parentId) {
         this.parentId = parentId;
     }
+    
     
 }

@@ -5,9 +5,11 @@
  */
 package online.shopping.GUI;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import online.shopping.Controller.*;
 
 /**
@@ -22,12 +24,31 @@ public class AddProduct extends Window {
         
     Product product = new Product();
     Management manage = new Management();
+    ArrayList<Currency>currencys;
+    ArrayList<ProductCategory>productCategorys;
     
     public AddProduct(String title) {
         
         super(title);
         initComponents();
-
+        Collection<Object> objects=manage.viewAll("Currency");
+        currencys =new ArrayList<>(10); 
+        int i=0;
+        for(Object obj:objects)
+        {
+            Currency currenc=(Currency)obj;
+            currencys.add(currenc);
+            currency.addItem(currenc.getName());
+            i++;
+        }
+        productCategorys=new ArrayList<>(10);
+        Collection<Object>objects1=manage.viewAll("ProductCategory");
+        for(Object object:objects1)
+        {
+            ProductCategory categor=(ProductCategory) object;
+            productCategorys.add(categor);
+            category.addItem(categor.getName());
+        }
     }
 
     /**
@@ -56,17 +77,15 @@ public class AddProduct extends Window {
         Scroll = new javax.swing.JScrollPane();
         descripe = new javax.swing.JTextPane();
         jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        color = new javax.swing.JTextField();
         Logout = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
         category = new javax.swing.JComboBox();
         currency = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        img = new javax.swing.JTextField();
         Back2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,9 +154,6 @@ public class AddProduct extends Window {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Image");
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Color");
-
         Logout.setBackground(new java.awt.Color(0, 204, 204));
         Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -177,14 +193,11 @@ public class AddProduct extends Window {
             }
         });
 
-        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "T-shirst", "Shirts", "Blazer", "Trousers", "Basic", "Cardigan", "Dress", "Skirt", "New Born(0-9months)", "Baby Girls(4-24months)", "Baby Boys{4-24months}" }));
         category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryActionPerformed(evt);
             }
         });
-
-        currency.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EGP", "EUR", "USD", "JPY", "SAR" }));
 
         jButton2.setText("Browse");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +238,8 @@ public class AddProduct extends Window {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        img.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -247,19 +262,19 @@ public class AddProduct extends Window {
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel1))
+                                    .addComponent(jLabel5))
                                 .addGap(71, 71, 71)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(name, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(price, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(40, 40, 40)
+                                        .addComponent(category, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(178, 178, 178))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jButton2))))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -315,24 +330,16 @@ public class AddProduct extends Window {
                         .addComponent(update)
                         .addGap(18, 18, 18)
                         .addComponent(delete)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel8)
-                        .addContainerGap(106, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGap(74, 74, 74))))
+                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel8))
+                .addGap(109, 109, 109))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -361,17 +368,31 @@ public class AddProduct extends Window {
         // TODO add your handling code here:
         Search.setText("");
     }//GEN-LAST:event_SearchMouseClicked
-
+    
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
         Validations v =Validations.Get_Validations();
-        String id = search.getText();
-        v.Is_digit(id);
-        product.setID(Integer.parseInt(id));
-        name.setText(product.getName());
-        price.setText(Double.toString(product.getPrice()));
-        quantity.setText(Integer.toString(product.getQuantity()));
-        descripe.setText(product.getDescription());
+        String id = Search.getText();
+        boolean t=v.Is_digit(id);
+        if (!t){
+            JOptionPane.showMessageDialog(frame, "ID must be a number", "Warnning",JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+           Object obj= manage.selectObject("Product", Integer.parseInt(id));
+           if(obj== null){
+               JOptionPane.showMessageDialog(frame, "ID NOT FOUND", "Warnning",JOptionPane.WARNING_MESSAGE);
+           }else{
+               product=(Product)obj;
+            name.setText(product.getName());
+            price.setText(Double.toString(product.getPrice()));
+            quantity.setText(Integer.toString(product.getQuantity()));
+            descripe.setText(product.getDescription());   
+            img.setText(product.getPathImage());
+            currency.setSelectedItem(product.getCurrency().getName());
+            category.setSelectedItem(product.getProductCategory().getName());
+            }
+           
+        }
     }//GEN-LAST:event_searchActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
@@ -381,6 +402,9 @@ public class AddProduct extends Window {
         product.setDescription(data[6]);
         product.setPrice(Double.parseDouble(data[1]));
         product.setQuantity(Integer.parseInt(data[4]));
+        product.setPathImage(data[7]);
+        product.getCurrency().setId(Integer.parseInt(data[3]));
+        product.getProductCategory().setID(Integer.parseInt(data[2]));
         manage.updateProduct(product);
     }//GEN-LAST:event_updateActionPerformed
 
@@ -388,6 +412,13 @@ public class AddProduct extends Window {
         // TODO add your handling code here:
         int id = Integer.parseInt(Search.getText());
         manage.deleteProduct(id);
+        name.setText("");
+        price.setText("");
+        quantity.setText("");
+        descripe.setText("");
+        img.setText("");
+        currency.setSelectedItem(null);
+        category.setSelectedItem(null);
         
     }//GEN-LAST:event_deleteActionPerformed
 
@@ -408,11 +439,9 @@ public class AddProduct extends Window {
         product.setDescription(data[6]);
         product.setPrice(Double.parseDouble(data[1]));
         product.setQuantity(Integer.parseInt(data[4]));
-       // int Cur = product.setCurrency(Integer.parseInt(data[3]));
-        //int Cat = product.setProductCategory(Integer.parseInt(data[2]));
-        int Cat = product.getProductCategory().getID();
-        int Cur = product.getCurrency().getId();
-        
+        int Cur = Integer.parseInt(data[3]);
+        int Cat = Integer.parseInt(data[2]);
+        product.setPathImage(data[7]);
         manage.addProduct(product, Cat, Cur);
        
     }//GEN-LAST:event_addActionPerformed
@@ -424,6 +453,10 @@ public class AddProduct extends Window {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         JFileChooser attach = new JFileChooser();
+        attach.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter=new FileNameExtensionFilter("*.Images","jpg","gif","png");
+        attach.removeChoosableFileFilter(attach.getAcceptAllFileFilter());
+        attach.addChoosableFileFilter(filter);
         attach.showOpenDialog(null);
         File file = attach.getSelectedFile();
         String fileName = file.getAbsolutePath();
@@ -433,12 +466,12 @@ public class AddProduct extends Window {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin("Admin").setVisible(true);
+        new Employee("Employee").setVisible(true);
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void Back2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Back2MouseClicked
         this.setVisible(false);
-        new Admin("Admin").setVisible(true);
+        new Employee("Employee").setVisible(true);
     }//GEN-LAST:event_Back2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -448,13 +481,11 @@ public class AddProduct extends Window {
     private javax.swing.JTextField Search;
     private javax.swing.JButton add;
     private javax.swing.JComboBox category;
-    private javax.swing.JTextField color;
     private javax.swing.JComboBox currency;
     private javax.swing.JButton delete;
     private javax.swing.JTextPane descripe;
-    private javax.swing.JTextField img;
+    private javax.swing.JLabel img;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -471,22 +502,36 @@ public class AddProduct extends Window {
     private javax.swing.JButton search;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
-
+        
+    public void error(String itemname,String DataType){
+        JOptionPane.showMessageDialog(frame, itemname+" must be a "+ DataType, "Warnning",JOptionPane.WARNING_MESSAGE);
+    }
        private String[] SetData(){
         String[] data  = new String[8]; 
+        boolean V ;
         Validations v =Validations.Get_Validations();
         data[0] = name.getText();
-        v.Is_alpha(data[0]);
+        V = v.Is_alpha(data[0]);
+        if(!V){
+            error("Name", "Alpha");
+        }
         data[1] = price.getText();
-        v.Is_digit(data[1]);
+        V = v.Is_double(data[1]);
+        if(!V){
+            error("Price","Number");
+        }
         data[2] = Integer.toString(category.getSelectedIndex() + 1);
         data[3] = Integer.toString(currency.getSelectedIndex() + 1);
         data[4] = quantity.getText();
-        v.Is_digit(data[4]);
-        data[5] = color.getText();
-        v.Is_alpha(data[5]);
+        V = v.Is_digit(data[4]);
+        if(!V){
+            error("Qyantity","Whole Number");
+        }
         data[6] = descripe.getText();
-        v.Is_alpha(data[6]);
+        V = data[6].equals("");
+        if(V){
+            error("Description","Alpha");
+        }
         data[7] = img.getText();
         return data;
     }

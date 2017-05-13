@@ -39,6 +39,8 @@ public class Product {
     private int quantity;
     @Column(name = "Description")
     private String Description;
+    @Column(name = "image_path")
+    private String pathImage;
     @ManyToOne
     @JoinColumn(name = "cateogry_id")
     private ProductCategory productCategory;
@@ -65,6 +67,14 @@ public class Product {
 
     public int getID() {
         return ID;
+    }
+    
+    public String getPathImage() {
+        return pathImage;
+    }
+
+    public void setPathImage(String pathImage) {
+        this.pathImage = pathImage;
     }
 
     public String getName() {
