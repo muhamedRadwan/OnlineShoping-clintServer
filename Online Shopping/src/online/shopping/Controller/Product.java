@@ -39,13 +39,13 @@ public class Product {
     private int quantity;
     @Column(name = "Description")
     private String Description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "cateogry_id")
     private ProductCategory productCategory;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "currency_id")
     private Currency currency;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinTable(name = "offer_product",
             joinColumns = {@JoinColumn(name = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "offer_id")}
