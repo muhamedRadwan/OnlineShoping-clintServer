@@ -136,7 +136,6 @@ public class Product {
     public void setOffer(Offer offer) {
         this.offer = offer;
         
-   
     }
        public static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration().configure();
