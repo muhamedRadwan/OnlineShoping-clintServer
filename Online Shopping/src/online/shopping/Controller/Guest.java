@@ -17,16 +17,34 @@ import org.hibernate.SessionFactory;
  * @author Mohamed-A.Radwan
  */
 public class Guest extends SystemTool{
-    public Person login(String username,String password){
-      SessionFactory s=hibernateConfig.createSessionFactory();
-      Session session =s.openSession(); 
-      Query q =session.createQuery("from tablename where attribut_name=:first_parameter");
-      q.setParameter("first_parameter",username);
-      Person p=(Person)q.uniqueResult();
-        return p;
+      public static Person login(String username,String password){
+       try{
+        SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
+        Session session=sessionFactory.openSession();
+        Query query=session.createQuery("from person p where p.password=:passowrd and p.username=:username");
+        query.setParameter("username", username);
+        query.setParameter("passowrd", password);
+        Person person=(Person)query.uniqueResult();
+        session.close();
+        return person;
+       }catch(Exception ex){
+        ex.printStackTrace();
+        return null;
+       }
     }
-    public boolean register (Customer customer){
-        return false;
+    public static boolean register (Customer customer){
+     try{
+         SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
+         Session session=sessionFactory.openSession();
+         session.save(customer);
+         session.getTransaction().commit();
+         session.close();
+         return true;
+     }catch(Exception ex){
+         System.out.println(ex);
+         System.exit(0);
+         return false;
+     }
     }
 }
 
