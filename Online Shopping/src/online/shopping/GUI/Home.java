@@ -38,7 +38,7 @@ public class Home extends Window {
     private JButton cart = new JButton("Cart");
     String[] man = {
         "Men",
-        "T-shirst",
+        "T-shirt",
         "Shirts",
         "Blazer",
         "Trousers"

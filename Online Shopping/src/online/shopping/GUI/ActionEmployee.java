@@ -11,9 +11,9 @@ import online.shopping.Controller.*;
  */
 public class ActionEmployee {
     
-    int ID;
+    int Search;
     String Name;
-    float Price;
+    double Price;
     int Category;
     int Currency;
     int Quantity;
@@ -22,34 +22,46 @@ public class ActionEmployee {
     String Img;
     Management manage = new Management();
     Product product = new Product();
-    public ActionEmployee(){
-        
-    }
     
-    public void SetData(String name, String price, String category, String currency, String quantity, String color, String descripe, String img){
+   public ActionEmployee(String name, String price, String category, String currency, String quantity, String color, String descripe, String img){
         Name = name;
-        Price = Float.parseFloat(price);
+        Price = Double.parseDouble(price);
         Category = Integer.parseInt(category);
         Currency = Integer.parseInt(currency);
         Quantity = Integer.parseInt(quantity);
         Color = color;
         Descripe = descripe;
         Img = img;
+    }
+    
+    public void add(){
         
         product.setName(Name);
         product.setDescription(Descripe);
         product.setPrice(Price);
         product.setQuantity(Quantity);
         
+        manage.addProduct(product, Category, Currency);
         
     }
     
-    public void Search(String id){
-        ID = Integer.parseInt(id);
+    public void update(){
         
     }
+    
+    public Product Search(String id){
+        Search = Integer.parseInt(id);
+        product = (Product)manage.selectObject("Product", Search);
+        Name = product.getName();
+        Price =  product.getPrice();
+        Category = product.getProductCategory().getID();
+        Currency = product.getCurrency().getId();
+        Quantity = product.getQuantity();
+        Descripe = product.getDescription();
+        return product;
+    }
     public void delete(String search){
-        this.ID = Integer.parseInt(search);
+        this.Search = Integer.parseInt(search);
     }
     
 }

@@ -43,6 +43,20 @@ public class Person implements Serializable  {
     private String registerationDate; 
     @Column(name = "type_id",insertable = false)
     private String typeId;
+
+    public Person(int id, String Fname, String Lname, String username, String password, String registerationDate, String typeId) {
+        this.id = id;
+        this.Fname = Fname;
+        this.Lname = Lname;
+        this.username = username;
+        this.password = password;
+        this.registerationDate = registerationDate;
+        this.typeId = typeId;
+    }
+
+    public Person() {
+    }
+   
     
     public void setId(int id) {
         this.id = id;

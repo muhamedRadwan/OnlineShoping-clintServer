@@ -51,7 +51,7 @@ public class Product {
             inverseJoinColumns = {@JoinColumn(name = "offer_id")}
     )
     private Offer offer;
-
+    
     public Product() {
     }
 

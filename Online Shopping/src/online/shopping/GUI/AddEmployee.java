@@ -17,7 +17,6 @@ public class AddEmployee extends Window {
      * Creates new form AddEmployee
      */
     
-    ActionAdmin Admin = new ActionAdmin();
     public AddEmployee(String title) {
         super(title);
         initComponents();
@@ -33,14 +32,11 @@ public class AddEmployee extends Window {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Save = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
         Name = new javax.swing.JTextField();
         User = new javax.swing.JTextField();
         Mail = new javax.swing.JTextField();
@@ -59,16 +55,6 @@ public class AddEmployee extends Window {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
-
-        Save.setText("Save");
-        Save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID");
 
         search.setText("Search");
         search.setToolTipText("");
@@ -95,12 +81,6 @@ public class AddEmployee extends Window {
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password");
-
-        ID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                IDKeyPressed(evt);
-            }
-        });
 
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,14 +195,12 @@ public class AddEmployee extends Window {
                     .addComponent(deactivate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
@@ -232,8 +210,7 @@ public class AddEmployee extends Window {
                             .addComponent(Pass)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(admin)
-                                .addGap(0, 98, Short.MAX_VALUE))
-                            .addComponent(ID)))
+                                .addGap(0, 98, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -259,10 +236,7 @@ public class AddEmployee extends Window {
                 .addGap(71, 71, 71)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -277,14 +251,12 @@ public class AddEmployee extends Window {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(23, 23, 23))
+                        .addGap(11, 11, 11))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Search)
-                        .addGap(12, 12, 12)
-                        .addComponent(add)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(update)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(add)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +267,8 @@ public class AddEmployee extends Window {
                             .addComponent(jLabel7)
                             .addComponent(admin)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Save)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(update)
+                        .addGap(18, 18, 18)
                         .addComponent(deactivate)
                         .addGap(8, 8, 8)))
                 .addContainerGap(60, Short.MAX_VALUE))
@@ -336,35 +308,17 @@ public class AddEmployee extends Window {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        String id = ID.getText();
-        String name = Name.getText();
-        String user = User.getText();
-        String mail = Mail.getText();
-        String pass = Pass.getText();
-        Admin.SetData(id, name, user, mail, pass);
+        String[] data = SetData();
     }//GEN-LAST:event_addActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
-        String update = search.getText();
-        Admin.search(update);
-        String id = ID.getText();
-        String name = Name.getText();
-        String user = User.getText();
-        String mail = Mail.getText();
-        String pass = Pass.getText();
-        Admin.SetData(id, name, user, mail, pass);
+        String[] data = SetData();
     }//GEN-LAST:event_updateActionPerformed
-
-    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        // TODO add your handling code here:
-        notimplmented x = new notimplmented(this);
-    }//GEN-LAST:event_SaveActionPerformed
 
     private void deactivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deactivateActionPerformed
         // TODO add your handling code here:
-        String deactive = search.getText();
-        Admin.search(deactive);
+
     }//GEN-LAST:event_deactivateActionPerformed
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
@@ -393,28 +347,18 @@ public class AddEmployee extends Window {
         String searchtext = search.getText();
     }//GEN-LAST:event_SearchActionPerformed
 
-    private void IDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDKeyPressed
-        // TODO add your handling code here:
-        int key = evt.getKeyCode();
-        if(key < 96 && key > 105) 
-            evt.getKeyChar();
-    }//GEN-LAST:event_IDKeyPressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Back;
-    private javax.swing.JTextField ID;
     private javax.swing.JPanel Logout;
     private javax.swing.JTextField Mail;
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Pass;
-    private javax.swing.JButton Save;
     private javax.swing.JButton Search;
     private javax.swing.JTextField User;
     private javax.swing.JButton add;
     private javax.swing.JCheckBox admin;
     private javax.swing.JButton deactivate;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -426,4 +370,15 @@ public class AddEmployee extends Window {
     private javax.swing.JTextField search;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
+
+    public String[] SetData(){
+        String[] data = new String[6];
+        data[0] = Name.getText();
+        data[1] = User.getText();
+        data[2] = Pass.getText();
+        data[3] = Mail.getText();
+        data[3] = Boolean.toString(admin.isSelected());
+        return data;
+    }
+    
 }
