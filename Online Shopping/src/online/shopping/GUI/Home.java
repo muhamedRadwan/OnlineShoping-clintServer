@@ -38,7 +38,7 @@ public class Home extends Window {
     private JButton cart = new JButton("Cart");
     String[] man = {
         "Men",
-        "T-shirst",
+        "T-shirt",
         "Shirts",
         "Blazer",
         "Trousers"
@@ -109,20 +109,38 @@ public class Home extends Window {
         filterList.add(ss1);
         filterList.add(ss);
         //End Testing Area
+        
+        login.setBackground(new Color(0,204,204));
+        login.setForeground(Color.white);
+        login.setOpaque(true);
         login.setBounds(logo.getBounds().x + 400, logo.getBounds().y + 50, 100, 30);
         add(login);
         login.addActionListener(this);
+        
+        register.setBackground(new Color(0,204,204));
+        register.setForeground(Color.white);
         register.setBounds(login.getBounds().x + 120, login.getBounds().y, 100, 30);
         add(register);
         register.addActionListener(this);
+        
+        cart.setBackground(new Color(0,204,204));
+        cart.setForeground(Color.white);
         cart.setBounds(register.getBounds().x + 120, register.getBounds().y, 100, 30);
         add(cart);
         cart.addActionListener(this);
 
-        men.setBounds(logo.getBounds().x + 150, logo.getBounds().y + 150, 80, 30);
+        men.setBackground(new Color(0,204,204));
+        men.setForeground(Color.white);
+        men.setBounds(logo.getBounds().x + 200, logo.getBounds().y + 150, 80, 30);
         add(men);
+        
+        women.setBackground(new Color(0,204,204));
+        women.setForeground(Color.white);
         women.setBounds(men.getBounds().x + 85, men.getBounds().y, 80, 30);
         add(women);
+        
+        kids.setBackground(new Color(0,204,204));
+        kids.setForeground(Color.white);
         kids.setBounds(women.getBounds().x + 85, men.getBounds().y, 150, 30);
         add(kids);
                 
@@ -156,12 +174,18 @@ public class Home extends Window {
                  
             });
 
-        SORT.setBounds(men.getBounds().x - 130, men.getBounds().y + 50, 80, 30);
+        SORT.setBackground(new Color(0,204,204));
+        SORT.setForeground(Color.white);
+        SORT.setBounds(logo.getBounds().x + 10, men.getBounds().y + 50, 80, 30);
         add(SORT);
+        
+        sort.setBackground(new Color(0,204,204));
+        sort.setForeground(Color.white);
         sort.setBounds(SORT.getBounds().x, SORT.getBounds().y + 25, 80, 30);
         add(sort);
         SORT.setForeground(Color.white);
         filter.setForeground(Color.white);
+        filter.setBackground(new Color(0,204,204));
 
         /*
             Set Filter Area 

@@ -23,6 +23,7 @@ public class Guest extends SystemTool{
         query.setParameter("username", username);
         query.setParameter("passowrd", password);
         Person person=(Person)query.uniqueResult();
+        session.close();
         return person;
        }catch(Exception ex){
         ex.printStackTrace();
@@ -35,6 +36,7 @@ public class Guest extends SystemTool{
          Session session=sessionFactory.openSession();
          session.save(customer);
          session.getTransaction().commit();
+         session.close();
          return true;
      }catch(Exception ex){
          System.out.println(ex);
@@ -42,7 +44,7 @@ public class Guest extends SystemTool{
          return false;
      }
     }
-    
+
     
     public static void main(String[] args) {
       

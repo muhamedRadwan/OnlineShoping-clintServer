@@ -6,6 +6,7 @@
  */
 package online.shopping.Controller;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -13,15 +14,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
  * @author Mohamed-A.Radwan
  */
-@Entity(name = "person")
+
 @Inheritance(strategy = InheritanceType.JOINED  )
 @DiscriminatorColumn(name = "type_id")
+@Entity(name = "person")
 public class Person implements Serializable  {
     @Id @GeneratedValue
     @Column(name = "id")
@@ -38,6 +45,20 @@ public class Person implements Serializable  {
     private String registerationDate; 
     @Column(name = "type_id",insertable = false)
     private String typeId;
+
+    public Person(int id, String Fname, String Lname, String username, String password, String registerationDate, String typeId) {
+        this.id = id;
+        this.Fname = Fname;
+        this.Lname = Lname;
+        this.username = username;
+        this.password = password;
+        this.registerationDate = registerationDate;
+        this.typeId = typeId;
+    }
+
+    public Person() {
+    }
+   
     
     public void setId(int id) {
         this.id = id;
@@ -98,4 +119,117 @@ public class Person implements Serializable  {
     }
     
     
+    public boolean addPerson(Person person)
+    {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+           
+              session.save(person);
+              transaction.commit();
+              session.close();   
+              
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+      
+   }
+   
+   public Person selectPerson(int id)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Query query=session.createQuery("from person p where p.id=:id");
+              query.setParameter("id", id);
+              Person person = (Person)query.uniqueResult();
+              
+              return person ;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return null;
+         }
+      
+   }
+   
+  public boolean updateProduct(Person person)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              session.saveOrUpdate(session.merge(person));
+              transaction.commit();
+              session.close();           
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
+
+  public boolean deletePerson(int id)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              Person person = new Person();
+              person.setId(id);
+              session.delete(person);
+              transaction.commit();
+              session.close();           
+      
+              return true;
+             
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
+
+public boolean seenFeedback(int feedbackId)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              Feedback feedback=(Feedback)session.get(Feedback.class, feedbackId);
+        
+              feedback.setSeen(true);
+              session.saveOrUpdate(session.merge(feedback));
+              transaction.commit();
+              session.close();           
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
+  
 }

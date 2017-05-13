@@ -106,6 +106,24 @@ public class Invoice implements Iinvoice{
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+<<<<<<< HEAD
     
 
+=======
+
+    /*
+    public static void main(String[] args) {
+        SessionFactory sesionFactory=Customer.createSessionFactory();
+        Session session=sesionFactory.openSession();
+        Address address=new Address();
+        address.setName("Maadi");
+        address.setParent_id(2);
+        Query query=session.createQuery("from address set creditscore=:creditscore where name=:name");
+        query.setInteger("creditscore", 612);
+        query.setString("name", "John Q. Public");
+        int modifications=query.executeUpdate();
+        
+    }
+    */
+>>>>>>> e2812489ab0d30b2b5529d9950ce3399aafebbc4
 }

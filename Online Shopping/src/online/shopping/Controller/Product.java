@@ -39,19 +39,21 @@ public class Product {
     private int quantity;
     @Column(name = "Description")
     private String Description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "image_path")
+    private String pathImage;
+    @ManyToOne
     @JoinColumn(name = "cateogry_id")
     private ProductCategory productCategory;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "currency_id")
-    private Currency currency;
-    @ManyToOne(cascade = CascadeType.ALL)
+    private Currency currency;   
+    @ManyToOne()
     @JoinTable(name = "offer_product",
             joinColumns = {@JoinColumn(name = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "offer_id")}
     )
     private Offer offer;
-
+    
     public Product() {
     }
 
@@ -65,6 +67,14 @@ public class Product {
 
     public int getID() {
         return ID;
+    }
+    
+    public String getPathImage() {
+        return pathImage;
+    }
+
+    public void setPathImage(String pathImage) {
+        this.pathImage = pathImage;
     }
 
     public String getName() {
@@ -125,6 +135,7 @@ public class Product {
 
     public void setOffer(Offer offer) {
         this.offer = offer;
+        
     }
        public static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration().configure();
@@ -132,7 +143,7 @@ public class Product {
                 configuration.getProperties()).build();
         return configuration.buildSessionFactory(serviceRegistry);
     }
-/*
+
     public static void main(String[] args) {
        try{
         SessionFactory sessionFactory = createSessionFactory();
@@ -147,8 +158,11 @@ public class Product {
         pc.setDescription("ELBL7");
         pc.setName("Man");
         pc.setParentId(1);
+
+        
         offer.setName("Ramadan");
         offer.setPresentage(10);
+        product.setID(3);
         product.setCurrency(currency);
         product.setDescription("Lbs rgaly");
         product.setName("Mohamed");
@@ -156,12 +170,17 @@ public class Product {
         product.setProductCategory(pc);
         product.setQuantity(50);
         product.setPrice(250.5);
-        session.save(product);
-        session.getTransaction().commit();
+        
+        Management management = new Management();
+        
+        
+        
+        //session.save(product);
+        //session.getTransaction().commit();
        }catch(Exception e){
            e.printStackTrace();
            System.exit(0);
        }
         
-    }*/
+    }
 }

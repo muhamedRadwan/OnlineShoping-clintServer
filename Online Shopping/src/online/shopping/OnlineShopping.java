@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package online.shopping.Controller;
+package online.shopping;
 
 import online.shopping.GUI.*;
 
@@ -19,18 +19,8 @@ public class OnlineShopping {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        AddProduct x = new AddProduct ("Home");
+        Home x = new Home ("Home");
         x.setVisible(true);
-        
-        
-        
-//        Offers x = new Offers("Offer");
-//        x.setVisible(true);
     }
-    public static String[] set(){
-        String [] s = new String[2];
-        s[0]="lobna";
-        s[1]="salma";
-        return s;
-    }
+    
 }
