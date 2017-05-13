@@ -19,8 +19,7 @@ import org.hibernate.SessionFactory;
 public class Guest extends SystemTool{
     public Person login(String username,String password){
       SessionFactory s=hibernateConfig.createSessionFactory();
-      Session session =s.openSession();
-     
+      Session session =s.openSession(); 
       Query q =session.createQuery("from tablename where attribut_name=:first_parameter");
       q.setParameter("first_parameter",username);
       Person p=(Person)q.uniqueResult();

@@ -517,9 +517,7 @@ public class AddProduct extends Window {
         }
         data[1] = price.getText();
         V = v.Is_double(data[1]);
-        if(!V){
-            error("Price","Number");
-        }
+        if(!V){error("Price","Number");}
         data[2] = Integer.toString(category.getSelectedIndex() + 1);
         data[3] = Integer.toString(currency.getSelectedIndex() + 1);
         data[4] = quantity.getText();

@@ -42,7 +42,7 @@ public class Person implements Serializable  {
     private String password;
     @Column(name = "registerationDate",insertable = false)
     private String registerationDate; 
-    @Column(name = "type_id",insertable = false)
+    @Column(name = "type_id")
     private String typeId;
 
     public Person(int id, String Fname, String Lname, String username, String password, String registerationDate, String typeId) {
@@ -52,6 +52,15 @@ public class Person implements Serializable  {
         this.username = username;
         this.password = password;
         this.registerationDate = registerationDate;
+        this.typeId = typeId;
+    }
+    
+
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(String typeId) {
         this.typeId = typeId;
     }
 

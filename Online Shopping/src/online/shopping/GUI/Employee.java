@@ -18,6 +18,7 @@ public class Employee extends Window {
      */
     public Employee(String title) {
         super(title);
+        
         ImageIcon icon = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.png"));
         pp.setIcon(icon);
         initComponents();
