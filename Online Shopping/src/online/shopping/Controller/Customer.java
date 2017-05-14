@@ -52,6 +52,7 @@ public class Customer extends Person{
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id",referencedColumnName = "customer_id")
     private Collection<Invoice> invoices;
+    
     public Customer() {
         CartItem=new ArrayList<>(10);
         feedbacks=new ArrayList<>(10);
@@ -197,12 +198,12 @@ public class Customer extends Person{
   public boolean MakeOrder(Customer customer){
      try{
         Session session =hibernateConfig.createSessionFactory().openSession();
-        session.getTransaction().begin();
-      
         Order order = new Order();
         order.setCustomer(customer);
-      
+        order.setProductsWithAmount(customer.getCartItem());
+        session.getTransaction().begin();   
         session.save(order);
+        session.close();
         session.getTransaction().commit();
         return true;
      }

@@ -15,7 +15,8 @@ import org.hibernate.SessionFactory;
  * @author Mohamed-A.Radwan
  */
 public class Guest extends SystemTool{
-    public static Person login(String username,String password){
+
+      public static Person login(String username,String password){
        try{
         SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
         Session session=sessionFactory.openSession();
@@ -29,7 +30,8 @@ public class Guest extends SystemTool{
         ex.printStackTrace();
         return null;
        }
-    }
+      }
+       
     public static boolean register (Customer customer){
      try{
          SessionFactory sessionFactory=   hibernateConfig.createSessionFactory();
@@ -45,9 +47,5 @@ public class Guest extends SystemTool{
      }
     }
 
-    
-    public static void main(String[] args) {
-      
-    }
 }
 

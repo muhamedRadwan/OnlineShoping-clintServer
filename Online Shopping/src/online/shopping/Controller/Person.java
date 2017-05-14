@@ -27,7 +27,6 @@ import org.hibernate.Transaction;
  */
 
 @Inheritance(strategy = InheritanceType.JOINED  )
-@DiscriminatorColumn(name = "type_id")
 @Entity(name = "person")
 public class Person implements Serializable  {
     @Id @GeneratedValue
@@ -37,13 +36,15 @@ public class Person implements Serializable  {
     private String Fname;
     @Column(name = "lastname")
     private String Lname;
+    @Column(name = "image_path")
+    private String image_path;
     @Column(name = "username")
     private String username;
     @Column(name = "password")
     private String password;
     @Column(name = "registerationDate",insertable = false)
     private String registerationDate; 
-    @Column(name = "type_id",insertable = false)
+    @Column(name = "type_id")
     private String typeId;
 
     public Person(int id, String Fname, String Lname, String username, String password, String registerationDate, String typeId) {
@@ -53,6 +54,23 @@ public class Person implements Serializable  {
         this.username = username;
         this.password = password;
         this.registerationDate = registerationDate;
+        this.typeId = typeId;
+    }
+    
+
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public String getImage_path() {
+        return image_path;
+    }
+
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
+    }
+    
+    public void setTypeId(String typeId) {
         this.typeId = typeId;
     }
 

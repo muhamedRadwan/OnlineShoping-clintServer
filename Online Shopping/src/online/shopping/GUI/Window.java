@@ -33,7 +33,7 @@ public class Window extends javax.swing.JFrame implements ActionListener {
         title = s;
         
         setLocation(300,10);
-        setSize(800,800);
+        setSize(900,900);
         setResizable(false);
         setLayout(null);
         getContentPane().setBackground(new Color(36,47,65));

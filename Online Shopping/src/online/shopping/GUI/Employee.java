@@ -18,9 +18,15 @@ public class Employee extends Window {
      */
     public Employee(String title) {
         super(title);
+        
         ImageIcon icon = new ImageIcon(getClass().getResource("/online/shopping/GUI/Images/logo.png"));
+     try{
         pp.setIcon(icon);
-        initComponents();
+     }catch(NullPointerException e)
+     {
+         e.printStackTrace();
+     }
+      initComponents();
     }
 
     /**

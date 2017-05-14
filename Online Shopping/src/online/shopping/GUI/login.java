@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,7 +8,9 @@ package online.shopping.GUI;
 
 import java.util.StringJoiner;
 import javax.swing.JOptionPane;
+import online.shopping.Controller.Customer;
 import online.shopping.Controller.Guest;
+import online.shopping.Controller.Management;
 import online.shopping.Controller.Person;
 
 /**
@@ -19,6 +22,9 @@ public class login extends Window {
     /**
      * Creates new form login2
      */
+    public static Object  person;
+    public static Customer  cust;
+    Management mang=new Management();
     public login(String title) {
         super(title);
         initComponents();
@@ -219,7 +225,24 @@ public class login extends Window {
         char [] chars=jPasswordField1.getPassword();
         String pass=String.copyValueOf(chars);
         Guest guest=new Guest();
-        Person person=guest.login(username, pass);
+        Person per=guest.login(username, pass);
+        if(per == null)
+            JOptionPane.showMessageDialog(null, "Wrong username or password");
+        else{
+            login.person=(Object)per;
+            if(per.getTypeId().equals("Customer")){
+                this.setVisible(false);
+                login.cust=(Customer)mang.selectObject("Customer",per.getId());
+                new Coustmer("Customer").setVisible(true);
+            }else if(per.getTypeId().equals("Employee")){
+                this.setVisible(false);
+                new Employee("Employee").setVisible(true);
+            }else{
+                this.setVisible(false);
+                new Admin("Admin").setVisible(true);
+            }
+        }
+
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked

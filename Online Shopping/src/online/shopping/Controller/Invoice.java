@@ -106,11 +106,7 @@ public class Invoice implements Iinvoice{
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-<<<<<<< HEAD
-    
-
-=======
-
+}
     /*
     public static void main(String[] args) {
         SessionFactory sesionFactory=Customer.createSessionFactory();
@@ -125,5 +121,3 @@ public class Invoice implements Iinvoice{
         
     }
     */
->>>>>>> e2812489ab0d30b2b5529d9950ce3399aafebbc4
-}
