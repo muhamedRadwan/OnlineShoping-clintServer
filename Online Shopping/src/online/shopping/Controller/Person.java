@@ -6,6 +6,7 @@
  */
 package online.shopping.Controller;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -117,7 +118,6 @@ public class Person implements Serializable  {
     }
     
     
-    
     public boolean addPerson(Person person)
     {
           try{
@@ -128,7 +128,8 @@ public class Person implements Serializable  {
            
               session.save(person);
               transaction.commit();
-              session.close();           
+              session.close();   
+              
       
               return true;
               
@@ -206,24 +207,28 @@ public class Person implements Serializable  {
          }
    }
 
+public boolean seenFeedback(int feedbackId)
+   {
+          try{
+            
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+              Transaction transaction = session.beginTransaction();
+              Feedback feedback=(Feedback)session.get(Feedback.class, feedbackId);
+        
+              feedback.setSeen(true);
+              session.saveOrUpdate(session.merge(feedback));
+              transaction.commit();
+              session.close();           
+      
+              return true;
+              
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+             return false;
+         }
+   }
   
-    public static void main(String[] args) {
-        
-        Person per = new Person();
-        
-        
-        per.deletePerson(21);
-        
-        
-        
-        
-    }
-
-    
-    
-    
-    
-    
-    
-    
 }

@@ -35,19 +35,18 @@ public class Management extends Person{
             Product product =(Product)session.get(Product.class, prod);
             product.setOffer(offer1);
             session.saveOrUpdate(session.merge(product));
-            
         }
       session.getTransaction().commit();
     }
     public boolean makeOffer(String offerName, int presentage){
-   try{ Session session =hibernateConfig.createSessionFactory().openSession();
+   try{ 
+    Session session =hibernateConfig.createSessionFactory().openSession();
     session.beginTransaction();
     Offer offer =new Offer();
     offer.setName(offerName);
     offer.setPresentage(presentage);
     session.save(offer);
 
-    
     session.getTransaction().commit();
     session.close();
    }catch(Exception e){

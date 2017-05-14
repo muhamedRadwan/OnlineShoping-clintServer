@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
+import javax.mail.MessagingException;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -90,10 +91,47 @@ public class Customer extends Person{
     public void setAddress(Address address) {
         this.address = address;
     }
-
-
-
     
+    
+    public Collection<Feedback> getFeedbacks() {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(Collection<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+    
+
+/*
+ public boolean makeOrder(Order order , int customerId)//,int payementMethodId) 
+    {
+        try{
+              SessionFactory ses = hibernateConfig.createSessionFactory();
+              Session session = ses.openSession();
+             
+              Customer customer = (Customer)session.get(Customer.class, customerId);
+              order.setCustomer(customer);
+              
+              Query query=session.createQuery("from CartItem c where c.customer_id=:id");
+              query.setParameter("id", customerId);
+              Collection<CartItem> cartitems = query.list();
+              
+              order.setProductsWithAmount(cartitems);
+              
+              session.saveOrUpdate(order);
+              session.getTransaction().commit();
+              return true;
+          }
+         catch(HibernateException ex){
+             System.out.println(ex);
+        
+            return false;
+         }
+        
+    }
+    
+
+  */  
     public boolean addToCart(int p,int c,int quantity){
       try{
         Session session = hibernateConfig.createSessionFactory().openSession();
@@ -115,7 +153,8 @@ public class Customer extends Person{
     }
     
     public boolean updateCart(int cartId,int quantity){
-   try{ Session session =hibernateConfig.createSessionFactory().openSession();
+   try{
+    Session session =hibernateConfig.createSessionFactory().openSession();
     session.getTransaction().begin();
     CartItem cart=(CartItem)session.get(CartItem.class, cartId);
     if (quantity!=0){
@@ -132,40 +171,51 @@ public class Customer extends Person{
     return true;
    }
     
+  
     
-    
-    public  boolean MakeFeedBack(Feedback feedback){
-            return  false;
-            
-            
+  public  boolean MakeFeedBack(Feedback feedback,int customerId){
+    try{
+        Session session =hibernateConfig.createSessionFactory().openSession();
+        session.getTransaction().begin();
+        Customer customer=(Customer)session.get(Customer.class, customerId);
+        session.save(feedback);
+        session.getTransaction().commit();
+        return true;
+     }
+     
+     
+     catch(Exception ex){
+     
+         System.out.println(ex);
+         return false;
+     }
             
     }
    
     
-    public boolean MakeOrder(ArrayList<CartItem> products){
-        return  false;
+  public boolean MakeOrder(Customer customer){
+     try{
+        Session session =hibernateConfig.createSessionFactory().openSession();
+        session.getTransaction().begin();
+      
+        Order order = new Order();
+        order.setCustomer(customer);
+      
+        session.save(order);
+        session.getTransaction().commit();
+        return true;
+     }
+     
+     
+     catch(Exception ex){
+     
+         System.out.println(ex);
+         return false;
+     }
+            
     }
 
-    public Collection<Feedback> getFeedbacks() {
-        return feedbacks;
-    }
-
-    public void setFeedbacks(Collection<Feedback> feedbacks) {
-        this.feedbacks = feedbacks;
-    }
-    
-
-    
-  public static void main(String[] args) {
- // Customer customer=entityManager.getReference(Customer.class,14);
-  //Product product=entityManager.getReference(Product.class,3);
-  Customer customer = new Customer();
-  
-  customer.updateCart(21,0);
-  
-  }
-    
-    public boolean forgetPassword(String email) {
+    public boolean forgetPassword(String email) throws MessagingException {
         
           try{
             
@@ -176,12 +226,15 @@ public class Customer extends Person{
               query.setParameter("email", email);
               Customer customer = (Customer)query.uniqueResult();
               if(customer !=null){
+              
                     Transaction transaction = session.beginTransaction();
                     String newPassword = getSaltString();
                     customer.setPassword(newPassword);
                     
                     session.saveOrUpdate(session.merge(customer));
        
+                    GoogleMail.Send(email,"New Password", "your new password is "+newPassword+"\n you can change it after login");
+                    
                     transaction.commit();
                     session.close();           
       
@@ -194,7 +247,6 @@ public class Customer extends Person{
                      return false;
                    }
           
-          
           }
          catch(HibernateException ex){
              System.out.println(ex);
@@ -204,7 +256,6 @@ public class Customer extends Person{
        
     }
 
-    
     protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -216,6 +267,38 @@ public class Customer extends Person{
         String saltStr = salt.toString();
         return saltStr;
     }
+  
+    /*
+    public static void main(String[] args) throws MessagingException{
+  
+     Customer cust = new Customer();
+     
+      if(cust.forgetPassword("muhameda@gmail.com")){
+      
+          System.out.println("yes");    
+      }
+      else
+      {
+           System.out.println("no");
+      }
+    }
+}
+     
+     Order order=new Order();
+     
+     Customer customer = new Customer();
+  
+  ArrayList<CartItem> cartitems = new ArrayList<CartItem>(2);
+  
+          CartItem cart_item1 =(CartItem)manage.selectObject("CartItem",20);
+          CartItem cart_item2 =(CartItem)manage.selectObject("CartItem",34);
+          
+      cartitems.add(cart_item1);
+      cartitems.add(cart_item2);
+          
+          
+        */
+  }
     
 
 //        try {
@@ -290,4 +373,3 @@ public class Customer extends Person{
 //        }
 //        }
     
-}
